@@ -1,10 +1,14 @@
+a {
+  text-decoration: none;
+}
 // ツイートのスタイル
 #global-container{
   background-image: url("/assets/kirei.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
+  position: relative;
 }
 // ヘッダーのスタイル
 .header{
@@ -132,10 +136,13 @@
 .char{
   font-family: Georgia, 'Times New Roman', Times, serif !important; 
 }
+// ツイート投稿のビュー
 #container{
-  position: relative;
-  width: 100vw;
-  height: calc(100vh - 100px);
+  position: absolute;
+  height: 80%;
+  width: 70%;
+  top: 20%;
+  left: 0%;
 }
 .content-text {
   position: absolute;
@@ -147,7 +154,6 @@
   animation-fill-mode: both;
   color: white;
     opacity: 0;
-    // display: none;
     animation-fill-mode: both;
 }
 @keyframes kf-animate-chars {
@@ -190,13 +196,9 @@
   height: calc(100vh - 100px);
 }
 .text-area{
-  width: 60%;
-  height: calc(100vh - 100px);
+  width: 100%;
+  height: 85%;
   color: white;
-  // display: flex;
-  // flex-direction: column;
-  visibility: hidden;
-  
 }
 .text-all {
   display: flex;
@@ -205,13 +207,19 @@
   height: 100%;
   justify-content: center;
   align-items: center;
+}
 
+.img-field {
+  font-size: 30px;
+  margin-top: 2%;
+}
+.tweet-image {
+  margin: 2% 0;
 }
 
 .text1{
   color: white;
   font-size: 30px;
-  // margin-bottom: 10px;
 }
 .text2{
   font-size: 30px;
@@ -224,7 +232,7 @@
   background-color: rgba(134, 132, 132, 0.1);
   color: white;
   font-size: 30px;
-  font-family: Cormorant Garamond;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .text4 {
   height: 50%;
@@ -234,7 +242,7 @@
   background-color: rgba(134, 132, 132, 0.1);
   font-size: 25px;
   color: white;
-  font-family: Cormorant Garamond;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .text5 {
   width:20%;
@@ -247,6 +255,7 @@
   color: white;
   font-family: Cormorant Garamond;
 }
+
 
 //一覧表示
 .photo-ul{
