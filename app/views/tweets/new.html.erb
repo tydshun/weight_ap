@@ -1,4 +1,4 @@
-<%# トップページ %>
+<%# ツイート投稿ページ %>
 <div id="global-container">
 <%# ヘッダー %>
   <header class= "header">
@@ -16,10 +16,16 @@
       <%= link_to new_tweet_path do %>
         <li class = "char1"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span></li>
       <% end %>
+      
+      <%= link_to tweets_tweets_path do %>
+        <li class = "char2 char"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span><span class="char">s</span><span class="char">&nbsp;</span><span class="char">L</span><span class="char">i</span><span class="char">s</span><span class="char">t</span></li>
+      <% end %>
 
-      <li class = "char2 char"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span><span class="char">s</span><span class="char">L</span><span class="char">i</span><span class="char">s</span><span class="char">t</span></li>
-      <li><a href="/users/sign_up"><span class="char">S</span><span class="char">i</span><span class="char">g</span><span class="char">n</span>
-      <span class="char">u</span><span class="char">p</span></a></li>
+      <%# ログアウト%>
+      <%= link_to  destroy_user_session_path do %>
+        <li><span class="char">S</span><span class="char">i</span><span class="char">g</span><span class="char">n</span><span class="char">&nbsp;</span><span class="char">o</span><span class="char">u</span><span class="char">t</span></li>
+      <% end %>
+
       <li><a href="#"><span class="char">i</span><span class="char">t</span><span class="char">e</span><span class="char">m</span></a></li>
     </ul>
   </div>
