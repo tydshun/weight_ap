@@ -259,26 +259,25 @@ a {
 
 //一覧表示
 .photo-ul{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   position: absolute;
-   width: 50%;
-   height: 80%;
-   top: 3%;
-   left: 5%;
-   visibility: hidden;
-    & .photo-li{
-      width: 100%;
-      background-color:  rgba(134, 132, 132, 0.1);
-      height: 100%;
-      color: white;
-    }
-    & .photo-text{
-      color: white;
-      font-size: 30px;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 50%;
+  height: 70%;
+  top: 20%;
+  left: 5%;
+  & .photo-li{
+    width: 100%;
+    background-color:  rgba(134, 132, 132, 0.1);
+    height: 100%;
+    color: white;
+  }
+  & .photo-text{
+    color: white;
+    font-size: 30px;
+  }
 } 
 
 // 投稿一覧

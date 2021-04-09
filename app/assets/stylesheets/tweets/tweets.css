@@ -653,10 +653,9 @@ a {
           align-items: center;
   position: absolute;
   width: 50%;
-  height: 80%;
-  top: 3%;
+  height: 70%;
+  top: 20%;
   left: 5%;
-  visibility: hidden;
 }
 
 .photo-ul .photo-li {
