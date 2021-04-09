@@ -1,0 +1,32 @@
+<%# トップページ %>
+<div id="global-container">
+<%# ヘッダー %>
+  <header class= "header">
+    <div class="header-left">
+      <%= link_to root_path, class:"char-list" do%>
+      <%# <a class="char-list" href="#"> %>
+        <span class="char">W</span><span class="char">e</span><span class="char">i</span><span class="char">g</span><span class="char">h</span><span class="char">t</span><span class="char">&nbsp;</span><span class="char">A</span><span class="char">p</span><span class="char">p</span>
+      <%# </a> %>
+      <% end %>
+    </div>
+    <%# ヘッダーライト %>
+    <div class="header-right">
+    <ul class = "menu-list">
+      <%# ツイート投稿ページに遷移 %>
+      <%= link_to new_tweet_path do %>
+        <li class = "char1"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span></li>
+      <% end %>
+
+      <li class = "char2 char"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span><span class="char">s</span><span class="char">L</span><span class="char">i</span><span class="char">s</span><span class="char">t</span></li>
+      <li><a href="/users/sign_up"><span class="char">S</span><span class="char">i</span><span class="char">g</span><span class="char">n</span>
+      <span class="char">u</span><span class="char">p</span></a></li>
+      <li><a href="#"><span class="char">i</span><span class="char">t</span><span class="char">e</span><span class="char">m</span></a></li>
+    </ul>
+
+    <%# トップテキスト %>
+     <div class= "content-text text-content">
+      <p>Let's do our best  <br>to manage weight !!</p>
+      <%# <%= current_user.nickname %>
+    </div>
+</div>
+ 
