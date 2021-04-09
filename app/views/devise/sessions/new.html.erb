@@ -7,20 +7,24 @@
     </div>
   </div>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field-user">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+  <div class="sign-main">
+    <div class="form-group">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field-user">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
 
-    <div class="field-user">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
+        <div class="field-user">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
 
-    <div id="sign-btn">
-          <button class="btn slide-bg"><span></span>Log in</button>
+        <div id="sign-btn">
+              <button class="btn slide-bg"><span></span>Log in</button>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
  
