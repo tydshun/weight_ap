@@ -45,6 +45,10 @@ class TweetsController < ApplicationController
       @tweet.destroy
     end
   
+    def tweets
+      @tweets = Tweet.page(params[:page]).per(6).order('created_at DESC')
+    end
+    
     private
     def tweet_params
       params.require(:tweet).permit(:title, :text, :image).merge(user_id: current_user.id)
