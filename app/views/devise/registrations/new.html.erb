@@ -4,7 +4,7 @@
   <div class="sign-header">
     <h2 class="sign-title">Sign up</h2>
     <div class="header_right">
-      <%= link_to "Top", root_path, class: "top-p" %>
+      <%# <%= link_to "Top", root_path, class: "top-p" %>
       <%= link_to "Log in", new_user_session_path, class: "log-p" %>
     </div>
   </div>
@@ -13,7 +13,7 @@
     <div class="form-group">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%# エラーメッセージ %>
-        <%= render "users/shared/error_messages", resource: resource %>
+        <%# <%= render "users/shared/error_messages", resource: resource %> 
       
         <div class="field-user">
           <%= f.label :nickname %>
