@@ -13,9 +13,9 @@ class TweetsController < ApplicationController
     def create
       @tweet = Tweet.new(tweet_params)
       if @tweet.save
-        redirect_to root_path
+        redirect_to tweets_tweets_path
       else
-        render new
+        redirect_to new_tweet_path
       end
     end
   
@@ -46,7 +46,7 @@ class TweetsController < ApplicationController
     end
   
     def tweets
-      @tweets = Tweet.page(params[:page]).per(6).order('created_at DESC')
+      @tweets = Tweet.page(params[:page]).per(8).order('created_at DESC')
     end
     
     private
