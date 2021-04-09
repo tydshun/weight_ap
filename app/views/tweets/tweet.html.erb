@@ -1,16 +1,55 @@
-<%# ツイート一覧ページ %>
-<div class = "photo-ul ul-photo">
-  <p class = "photo-text">PhotoList</p>
-    <ul class = "photo-li">
-      <span class = "list-json"></span>
-        <% @tweets.each do |tweet| %>
-        <li class="photo-up">
-          <div class="photo-img">
-          <%=image_tag tweet.image, class: 'tweet-photos' %>
-          </div>
-          <span><%= tweet.title%></span>
+<%# トップページ %>
+<div id="global-container">
+<%# ヘッダー %>
+  <header class= "header">
+    <div class="header-left">
+      <%= link_to root_path, class:"char-list" do%>
+      <%# <a class="char-list" href="#"> %>
+        <span class="char">W</span><span class="char">e</span><span class="char">i</span><span class="char">g</span><span class="char">h</span><span class="char">t</span><span class="char">&nbsp;</span><span class="char">A</span><span class="char">p</span><span class="char">p</span>
+      <%# </a> %>
+      <% end %>
+    </div>
+    <%# ヘッダーライト %>
+    <div class="header-right">
+    <ul class = "menu-list">
+      <%# ツイート投稿ページに遷移 %>
+      <%= link_to new_tweet_path do %>
+        <li class = "char1"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span></li>
+      <% end %>
+
+      <li class = "char2 char"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span><span class="char">s</span><span class="char">L</span><span class="char">i</span><span class="char">s</span><span class="char">t</span></li>
+      
+      <% if user_signed_in? %>
+        <%# ログインしているときの表示 %>
+        <%= link_to  destroy_user_session_path do %>
+            <li><span class="char">S</span><span class="char">i</span><span class="char">g</span><span class="char">n</span><span class="char">&nbsp;</span><span class="char">o</span><span class="char">u</span><span class="char">t</span></li>
         <% end %>
-        <%# <%= paginate @tweets %> 
-        </li> 
-    </ul> 
+          <%# ログアウトしている際の表示 %>
+        <% else %>
+        <%= link_to new_user_session_path do %>
+          <li><span class="char">S</span><span class="char">i</span><span class="char">g</span><span class="char">n</span><span class="char">&nbsp;</span><span class="char">u</span><span class="char">p</span></li>
+        <% end %>
+      <% end %>
+
+      <li><a href="#"><span class="char">i</span><span class="char">t</span><span class="char">e</span><span class="char">m</span></a></li>
+    
+    </ul>
+
+   <%# ツイート一覧ページ %>
+    <div class = "photo-ul ul-photo">
+      <p class = "photo-text">PhotoList</p>
+        <ul class = "photo-li">
+          <span class = "list-json"></span>
+            <% @tweets.each do |tweet| %>
+            <li class="photo-up">
+              <div class="photo-img">
+              <%=image_tag tweet.image, class: 'tweet-photos' %>
+              </div>
+              <span><%= tweet.title%></span>
+            <% end %>
+            <%# <%= paginate @tweets %> 
+            </li> 
+        </ul> 
+    </div>
+  </div>
 </div>
