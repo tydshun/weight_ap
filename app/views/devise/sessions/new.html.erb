@@ -1,0 +1,26 @@
+<div class="sign-all">
+  <div class="sign-header">
+    <h2 class="sign-title">Log in</h2>
+    <div class="header_right">
+      <%# <%= link_to "Top", root_path, class: "top-p" %> 
+      <%= link_to "Sign up", new_user_registration_path, class: "log-p" %>
+    </div>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field-user">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field-user">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <div id="sign-btn">
+          <button class="btn slide-bg"><span></span>Log in</button>
+    </div>
+  <% end %>
+</div>
+ 

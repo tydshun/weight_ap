@@ -1,0 +1,363 @@
+.sign-all {
+  height: 100%;
+  width: 100vw;
+  background-color: black;
+  color: white;
+  & .sign-header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 400px;
+    margin: 0 40px;
+    border-bottom: 1px solid gray;
+    .sign-title {
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 60px;
+    }
+    & .header_right {
+      & .top-p {
+        margin-right: 9px;
+        padding: 0 10px;
+        color: white;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        border-bottom: 1px solid white;
+      }
+      & .log-p {
+        padding: 0 10px;
+        color: white;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        border-bottom: 1px solid white;
+      }
+    }
+  }
+
+
+  & .sign-main {
+    width: 50%;
+    .field {
+      width: 100%;
+    }
+  }
+}
+.new_user{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+}
+.form-group{
+  width: 100vw;
+  height: calc(100%-100px);
+}
+.field-user{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+}
+#user_nickname,
+#user_email,
+#user_password,
+#user_password_confirmation{
+  width: 35%;
+  height: 40px;
+  margin:10px 0 10px 0;
+  border-radius: 5px;
+  border:rgba(12,12,12,0.1) solid 2px;
+  background-color: rgba(155, 152, 152, 0.233);
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 25px;
+}
+
+label {
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding-top: 40px;
+}
+
+$cWhite: white;
+$cBlack: black;
+
+#sign-btn {
+    text-align: center;
+    width: 100vw;
+}
+
+.btn {
+    background-color: $cWhite;
+    color: $cBlack;
+    border: 1px solid $cBlack;
+    padding: 10px 40px;
+    margin: 50px 0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    &.slide-bg {
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+
+        & span {
+           display: inline-block;
+           width: 100%;
+           height: 100%;
+           background-color: $cBlack;
+           position: absolute;
+           top: 0;
+           left: 0;
+           transform: translateX(-100%);
+           transition: transform 0.3s;
+           z-index: -1;
+        }
+
+        &:hover {
+            color: $cWhite;
+
+            & span {
+                transform: none;
+            }
+        }
+    }
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+#error_explanation {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+// Userプロフィールページ
+
+li {
+  list-style: none;
+}
+
+.mypage {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  display: flex;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  & .left-mypage {
+    width: 30%;
+    height: 100vh;
+    
+    & .left-my-hight {
+      width: 100%;
+      height: 50vh;
+      background-color: black;
+
+      & .my-profile-img {
+        height: 300px;
+        width: 300px;
+        // background-color: white;
+        margin: 20px auto ;
+        display: block;
+        position: relative;
+        & .my-avatar {
+          background-color: rgba(0,0,0,0.1);
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          
+        }
+      }
+      & .nickname-border{
+        border-bottom: 1px solid white;
+        margin: 0 30px;
+        & p {
+          margin: 14px 0 15px;
+          text-align: center;
+          font-size: 22px;
+          font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+      }
+    }
+    & .left-my-low {
+      background-color: black;
+      width: 100%;
+      
+      & ul {
+        padding: 110px 0 70px 50px;
+        margin: 0;
+        & .li-border{
+          margin-right: 240px;
+          & li {
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-bottom: 30px;
+            border-bottom: 1px solid white;
+            cursor: pointer;
+  
+          }
+        }
+      }
+    }
+  }
+
+  & .right-mypage {
+    width: 70%;
+    height: 100%;
+    position: relative;
+    & .profile {
+      &.in-calendar {
+        visibility: hidden;
+      }
+      &.in-graph {
+        visibility: hidden;
+      }
+      &.in-profile {
+        visibility: visible;
+      }
+      
+
+      & .right-my-hight {
+        height: 50%;
+        width: 100%;
+        position: absolute;
+          width: 100%;
+          height: 50%;
+        
+        background-color: black;
+        & .profile-header {
+          height: 50px;
+          padding-top: 10px;
+          background-color: black;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          & .profile-title {
+            font-weight: normal;
+            font-size: 40px;
+            margin-left: 20px;
+          }
+          & span {
+            margin-right: 10px;
+            height: 40px;
+            width:50px;
+            // border: 1px solid white;
+            border-bottom: 1px solid white;
+            color: white;
+            background-color:rgba($color: #000000, $alpha: 0);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 18px;
+            letter-spacing: 2px;
+            padding: 0;
+            cursor: pointer
+
+          }
+        }
+        & .profile-text {
+          margin: 10px;
+          height: 300px;
+          border: 2px solid white;
+          & .text-deco {
+            width: 100%;
+            height: 99%;
+            border: none;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+          }
+        }
+      }
+    .right-my-low {
+      height: 50%;
+      width: 100%;
+      background-color: black;
+      display: flex;
+      position: absolute;
+          
+          top: 50vh;
+      & .my-photo-title {
+        margin-left: 50px;
+        padding-top: 17px;
+        font-size: larger;
+      }
+      & .pad {
+        padding: 30px 0;
+      }
+    }
+   }
+  & .graph{
+    position: absolute;
+    top: 100px;
+    visibility: hidden;
+    &.in-calendar {
+      visibility: hidden;
+    }
+    &.in-graph {
+      visibility: visible;
+    }
+    &.in-profile {
+      visibility: hidden;
+    }
+  }
+  & .calendar{
+    position: absolute;
+    top: 50px;
+    visibility: hidden;
+    height: 100vh;
+    width: 70vw;
+    &.in-calendar {
+      visibility: visible;
+    }
+    &.in-graph {
+      visibility: hidden;
+    }
+    &.in-profile {
+      visibility: hidden;
+    }
+  }
+  }
+}
+
+.simple-calendar {
+  width: 67vw  !important;
+  
+  & .today{
+    background-color: rgba($color: #a4a4a4, $alpha: 0.3)!important;
+  }
+  & .next-month{
+    background-color: #0936bb4a;
+  } 
+  & a {
+    color: white;
+    // border-bottom: 1px solid white;
+    text-decoration: underline;
+    font-size: 13px;
+    
+    
+  }
+}
+
+.graph {
+  background-color: white;
+  & .my-title {
+    background-color: black;
+    color: white;
+    margin: 0;
+  }
+  & .weight-field {
+    padding: 20px 0;
+    background-color: black;
+  }
+  & .today_weight {
+    color: white;
+    background-color: black;
+  }
+}
