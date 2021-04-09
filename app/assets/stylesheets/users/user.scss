@@ -1,8 +1,9 @@
 .sign-all {
-  height: 100%;
+  height: 100vh;
   width: 100vw;
   background-color: black;
   color: white;
+  position: relative;
   & .sign-header {
     height: 100px;
     display: flex;
@@ -41,13 +42,13 @@
   }
 }
 .new_user{
+  padding: 5% 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-
 }
 .form-group{
   width: 100vw;
@@ -75,6 +76,7 @@
   color: white;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 25px;
+  outline: none;
 }
 
 label {
@@ -137,6 +139,9 @@ $cBlack: black;
 
 #error_explanation {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  position: absolute;
+  top: 35%;
+  left: 5%;
 }
 
 // Userプロフィールページ
