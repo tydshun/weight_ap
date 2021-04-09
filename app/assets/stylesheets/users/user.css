@@ -1,0 +1,420 @@
+.sign-all {
+  height: 100%;
+  width: 100vw;
+  background-color: black;
+  color: white;
+}
+
+.sign-all .sign-header {
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-left: 400px;
+  margin: 0 40px;
+  border-bottom: 1px solid gray;
+}
+
+.sign-all .sign-header .sign-title {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 60px;
+}
+
+.sign-all .sign-header .header_right .top-p {
+  margin-right: 9px;
+  padding: 0 10px;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-bottom: 1px solid white;
+}
+
+.sign-all .sign-header .header_right .log-p {
+  padding: 0 10px;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-bottom: 1px solid white;
+}
+
+.sign-all .sign-main {
+  width: 50%;
+}
+
+.sign-all .sign-main .field {
+  width: 100%;
+}
+
+.new_user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.form-group {
+  width: 100vw;
+  height: calc(100%-100px);
+}
+
+.field-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+#user_nickname,
+#user_email,
+#user_password,
+#user_password_confirmation {
+  width: 35%;
+  height: 40px;
+  margin: 10px 0 10px 0;
+  border-radius: 5px;
+  border: rgba(12, 12, 12, 0.1) solid 2px;
+  background-color: rgba(155, 152, 152, 0.233);
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 25px;
+}
+
+label {
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding-top: 40px;
+}
+
+#sign-btn {
+  text-align: center;
+  width: 100vw;
+}
+
+.btn {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  padding: 10px 40px;
+  margin: 50px 0;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 5px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.btn.slide-bg {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn.slide-bg span {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  z-index: -1;
+}
+
+.btn.slide-bg:hover {
+  color: white;
+}
+
+.btn.slide-bg:hover span {
+  -webkit-transform: none;
+          transform: none;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+#error_explanation {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+li {
+  list-style: none;
+}
+
+.mypage {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.mypage .left-mypage {
+  width: 30%;
+  height: 100vh;
+}
+
+.mypage .left-mypage .left-my-hight {
+  width: 100%;
+  height: 50vh;
+  background-color: black;
+}
+
+.mypage .left-mypage .left-my-hight .my-profile-img {
+  height: 300px;
+  width: 300px;
+  margin: 20px auto;
+  display: block;
+  position: relative;
+}
+
+.mypage .left-mypage .left-my-hight .my-profile-img .my-avatar {
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mypage .left-mypage .left-my-hight .nickname-border {
+  border-bottom: 1px solid white;
+  margin: 0 30px;
+}
+
+.mypage .left-mypage .left-my-hight .nickname-border p {
+  margin: 14px 0 15px;
+  text-align: center;
+  font-size: 22px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.mypage .left-mypage .left-my-low {
+  background-color: black;
+  width: 100%;
+}
+
+.mypage .left-mypage .left-my-low ul {
+  padding: 110px 0 70px 50px;
+  margin: 0;
+}
+
+.mypage .left-mypage .left-my-low ul .li-border {
+  margin-right: 240px;
+}
+
+.mypage .left-mypage .left-my-low ul .li-border li {
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 30px;
+  border-bottom: 1px solid white;
+  cursor: pointer;
+}
+
+.mypage .right-mypage {
+  width: 70%;
+  height: 100%;
+  position: relative;
+}
+
+.mypage .right-mypage .profile.in-calendar {
+  visibility: hidden;
+}
+
+.mypage .right-mypage .profile.in-graph {
+  visibility: hidden;
+}
+
+.mypage .right-mypage .profile.in-profile {
+  visibility: visible;
+}
+
+.mypage .right-mypage .profile .right-my-hight {
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-color: black;
+}
+
+.mypage .right-mypage .profile .right-my-hight .profile-header {
+  height: 50px;
+  padding-top: 10px;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mypage .right-mypage .profile .right-my-hight .profile-header .profile-title {
+  font-weight: normal;
+  font-size: 40px;
+  margin-left: 20px;
+}
+
+.mypage .right-mypage .profile .right-my-hight .profile-header span {
+  margin-right: 10px;
+  height: 40px;
+  width: 50px;
+  border-bottom: 1px solid white;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.mypage .right-mypage .profile .right-my-hight .profile-text {
+  margin: 10px;
+  height: 300px;
+  border: 2px solid white;
+}
+
+.mypage .right-mypage .profile .right-my-hight .profile-text .text-deco {
+  width: 100%;
+  height: 99%;
+  border: none;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.mypage .right-mypage .profile .right-my-low {
+  height: 50%;
+  width: 100%;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 50vh;
+}
+
+.mypage .right-mypage .profile .right-my-low .my-photo-title {
+  margin-left: 50px;
+  padding-top: 17px;
+  font-size: larger;
+}
+
+.mypage .right-mypage .profile .right-my-low .pad {
+  padding: 30px 0;
+}
+
+.mypage .right-mypage .graph {
+  position: absolute;
+  top: 100px;
+  visibility: hidden;
+}
+
+.mypage .right-mypage .graph.in-calendar {
+  visibility: hidden;
+}
+
+.mypage .right-mypage .graph.in-graph {
+  visibility: visible;
+}
+
+.mypage .right-mypage .graph.in-profile {
+  visibility: hidden;
+}
+
+.mypage .right-mypage .calendar {
+  position: absolute;
+  top: 50px;
+  visibility: hidden;
+  height: 100vh;
+  width: 70vw;
+}
+
+.mypage .right-mypage .calendar.in-calendar {
+  visibility: visible;
+}
+
+.mypage .right-mypage .calendar.in-graph {
+  visibility: hidden;
+}
+
+.mypage .right-mypage .calendar.in-profile {
+  visibility: hidden;
+}
+
+.simple-calendar {
+  width: 67vw  !important;
+}
+
+.simple-calendar .today {
+  background-color: rgba(164, 164, 164, 0.3) !important;
+}
+
+.simple-calendar .next-month {
+  background-color: #0936bb4a;
+}
+
+.simple-calendar a {
+  color: white;
+  text-decoration: underline;
+  font-size: 13px;
+}
+
+.graph {
+  background-color: white;
+}
+
+.graph .my-title {
+  background-color: black;
+  color: white;
+  margin: 0;
+}
+
+.graph .weight-field {
+  padding: 20px 0;
+  background-color: black;
+}
+
+.graph .today_weight {
+  color: white;
+  background-color: black;
+}
+/*# sourceMappingURL=user.css.map */
