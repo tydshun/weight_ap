@@ -443,42 +443,4 @@ a {
 .char {
   font-family: Georgia, 'Times New Roman', Times, serif !important;
 }
-
-.my-page {
-  background-color: burlywood;
-  height: 80%;
-  width: 100%;
-}
-
-.my-page .my-left {
-  background-color: chocolate;
-}
-
-.my-page .my-left .my-left-top {
-  background-color: cornflowerblue;
-}
-
-.my-page .my-left .my-left-bottom {
-  background-color: darkcyan;
-}
-
-.my-page .my-right .right-top {
-  background-color: darkorchid;
-}
-
-.my-page .my-right .right-top .profile-title {
-  background-color: deeppink;
-}
-
-.my-page .my-right .right-top .my-edit-btn {
-  background-color: dimgrey;
-}
-
-.my-page .my-right .right-middle {
-  background-color: indianred;
-}
-
-.my-page .my-right .right-bottom {
-  background-color: skyblue;
-}
 /*# sourceMappingURL=show.css.map */
