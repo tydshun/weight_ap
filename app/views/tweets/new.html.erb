@@ -17,10 +17,16 @@
         <li class = "char1"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span></li>
       <% end %>
 
+<<<<<<< Updated upstream
       <li class = "char2 char"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span><span class="char">s</span><span class="char">L</span><span class="char">i</span><span class="char">s</span><span class="char">t</span></li>
       <li><a href="/users/sign_up"><span class="char">S</span><span class="char">i</span><span class="char">g</span><span class="char">n</span>
       <span class="char">u</span><span class="char">p</span></a></li>
       <li><a href="#"><span class="char">i</span><span class="char">t</span><span class="char">e</span><span class="char">m</span></a></li>
+=======
+      <%= link_to user_path(current_user.id) do %>
+        <li><span class="char">M</span><span class="char">y</span><span class="char">&nbsp;</span><span class="char">P</span><span class="char">a</span><span class="char">g</span><span class="char">e</span></li>
+      <% end %>
+>>>>>>> Stashed changes
     </ul>
   </div>
   
@@ -35,7 +41,7 @@
         <%= f.file_field :image, multiple: true, direct_upload: true, class: "tweet-image" %>
 
         <%= f.label :text, "Text", class: "text2" %><br />
-        <%= f.text_area :text, class: "text4" %>
+        <%= f.text_area :text, rows: "6",cols:"20", class: "text4" %>
       
         <%= f.submit "Tweet", class: "text5"%>
       <% end %>

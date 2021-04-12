@@ -2,8 +2,8 @@ a {
   text-decoration: none;
 }
 
-#global-container {
-  background-image: url("/assets/kirei.jpg");
+#show-container {
+  background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -444,376 +444,41 @@ a {
   font-family: Georgia, 'Times New Roman', Times, serif !important;
 }
 
-#container {
-  position: absolute;
+.my-page {
+  background-color: burlywood;
   height: 80%;
-  width: 70%;
-  top: 20%;
-  left: 0%;
-}
-
-.content-text {
-  position: absolute;
-  top: 50%;
-  left: 30%;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 70px;
-  -webkit-animation: kf-animate-chars 1.3s;
-          animation: kf-animate-chars 1.3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-  color: white;
-  opacity: 0;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes kf-animate-chars {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate(-50%, 50%);
-            transform: translate(-50%, 50%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
-  }
-}
-
-@keyframes kf-animate-chars {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate(-50%, 50%);
-            transform: translate(-50%, 50%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
-  }
-}
-
-@-webkit-keyframes kf-animation {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@keyframes kf-animation {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@-webkit-keyframes kf-animate-chars2 {
-  0% {
-    opacity: 1;
-    -webkit-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
-  }
-  50% {
-    opacity: 0;
-    -webkit-transform: translate(50%, 0);
-            transform: translate(50%, 0);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translate(100%, 0);
-            transform: translate(100%, 0);
-  }
-}
-
-@keyframes kf-animate-chars2 {
-  0% {
-    opacity: 1;
-    -webkit-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
-  }
-  50% {
-    opacity: 0;
-    -webkit-transform: translate(50%, 0);
-            transform: translate(50%, 0);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translate(100%, 0);
-            transform: translate(100%, 0);
-  }
-}
-
-.top-image2 {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100vw;
-  height: calc(100vh - 100px);
-}
-
-.text-area {
-  width: 100%;
-  height: 85%;
-  color: white;
-}
-
-.text-all {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-  height: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.img-field {
-  font-size: 30px;
-  margin-top: 2%;
-}
-
-.tweet-image {
-  margin: 2% 0;
-}
-
-.text1 {
-  color: white;
-  font-size: 30px;
-}
-
-.text2 {
-  font-size: 30px;
-  margin-top: 10px;
-}
-
-.text3 {
-  width: 50%;
-  height: 50px;
-  border: rgba(12, 12, 12, 0.1) solid 2px;
-  background-color: rgba(134, 132, 132, 0.1);
-  color: white;
-  font-size: 30px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.text4 {
-  height: 50%;
-  width: 70%;
-  border: rgba(12, 12, 12, 0.1) solid 2px;
-  background-color: rgba(134, 132, 132, 0.1);
-  font-size: 25px;
-  color: white;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.text5 {
-  width: 20%;
-  background-color: rgba(134, 132, 132, 0.1);
-  letter-spacing: 2px;
-  margin-top: 20px;
-  border: rgba(12, 12, 12, 0.1) solid 2px;
-  cursor: pointer;
-  font-size: 20px;
-  color: white;
-  font-family: Cormorant Garamond;
-}
-
-.photo-ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: absolute;
-  width: 50%;
-  height: 80%;
-  top: 3%;
-  left: 5%;
-  visibility: hidden;
-}
-
-.photo-ul .photo-li {
-  width: 100%;
-  background-color: rgba(134, 132, 132, 0.1);
-  height: 100%;
-  color: white;
-}
-
-.photo-ul .photo-text {
-  color: white;
-  font-size: 30px;
-}
-
-.photo-li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  overflow: scroll;
-}
-
-.photo-up {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-preferred-size: 33%;
-      flex-basis: 33%;
-  height: 50%;
-}
-
-.photo-img {
-  height: 100px;
-  width: 150px;
-  margin-bottom: 5px;
-}
-
-.tweet-photos {
-  height: 92px;
-  width: 150px;
-}
-<<<<<<< Updated upstream
-=======
-
-.tweet-show {
-  color: white;
-  height: 70%;
-  width: 70%;
-  position: absolute;
-  top: 20%;
-  left: 0%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 2% 0;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.tweet-show .show-left {
-  width: 50%;
-  height: 100%;
-  text-align: center;
-  border-right: 1px solid white;
-  padding: 0 2%;
-}
-
-.tweet-show .show-left .show-title {
-  font-size: 1.5em;
-  padding-bottom: 1%;
-}
-
-.tweet-show .show-left .show-image {
   width: 100%;
 }
 
-.tweet-show .show-left .show-text {
-  padding-top: 4%;
-  height: 40%;
-  overflow: scroll;
-  height: 25%;
+.my-page .my-left {
+  background-color: chocolate;
 }
 
-.tweet-show .show-left .tweets-name {
-  text-align: end;
+.my-page .my-left .my-left-top {
+  background-color: cornflowerblue;
 }
 
-.tweet-show .show-left .tweets-name .tweet-name {
-  color: white;
-  padding: 0 2%;
-  text-shadow: #FC0 1px 0 10px;
+.my-page .my-left .my-left-bottom {
+  background-color: darkcyan;
 }
 
-.tweet-show .show-right {
-  width: 50%;
-  margin: 0 2%;
+.my-page .my-right .right-top {
+  background-color: darkorchid;
 }
 
-.tweet-show .show-right .show-comment {
-  height: 100%;
+.my-page .my-right .right-top .profile-title {
+  background-color: deeppink;
 }
 
-.tweet-show .show-right .show-comment h2 {
-  text-align: center;
-  font-size: 1.5em;
-  padding-bottom: 2%;
+.my-page .my-right .right-top .my-edit-btn {
+  background-color: dimgrey;
 }
 
-.tweet-show .show-right .show-comment .comment-index {
-  margin: 2% 0;
-  height: 70%;
-  background-color: rgba(255, 255, 255, 0.041);
-  overflow: scroll;
+.my-page .my-right .right-middle {
+  background-color: indianred;
 }
 
-.tweet-show .show-right .show-comment .comment-index .comment-lists {
-  padding-bottom: 2%;
+.my-page .my-right .right-bottom {
+  background-color: skyblue;
 }
-
-.tweet-show .show-right .show-comment .comment-index .comment-lists .comment-user .user-name {
-  color: white;
-}
-
-.tweet-show .show-right .show-comment .comment-index .comment-lists .comment-user .user-name:hover {
-  color: lightblue;
-}
-
-.tweet-show .show-right .show-comment .comment-index .comment-lists .comment-text {
-  border-bottom: 1px solid white;
-  padding: 3%;
-  font-weight: 600;
-}
-
-.tweet-show .show-right .show-comment .comment-field {
-  width: 100%;
-}
-
-.tweet-show .show-right .show-comment .comment-field .comment-area {
-  width: 100%;
-  height: 30%;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  outline: none;
-  background-color: rgba(0, 0, 0, 0.199);
-  color: white;
-}
->>>>>>> Stashed changes
-/*# sourceMappingURL=tweets.css.map */
+/*# sourceMappingURL=show.css.map */

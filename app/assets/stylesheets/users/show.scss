@@ -1,0 +1,172 @@
+a {
+  text-decoration: none;
+}
+// ツイートのスタイル
+#show-container{
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+// ヘッダーのスタイル
+.header{
+  width: 100vw;
+  height: 15%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(36, 36, 35, 0.323);
+  & .header-left{
+    color:white;
+    padding-left: 3vw;
+    font-size: 25px;
+    display: flex;
+    text-align: center;
+    & .char-list{
+      color: white;
+      & .char{
+        margin-right: 2px;
+        opacity:0;
+        display: inline-block;
+        animation-name: kf-animation;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: forwards;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i}) {
+            animation-delay: $i * 0.04s;
+          }
+        }
+      }
+    }
+  }
+  & .header-right{
+
+    & .menu-list{
+      display: flex;
+      list-style: none;
+      font-size: 20px;
+      & li{
+        margin-right: 50px;
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        &:hover{
+          opacity: 0.5;
+         transition: 0.4s;
+        }
+        & span{
+          color: white;
+          opacity:0;
+          display: inline-block;
+          // cursor: pointer;
+          animation-name: kf-animation;
+          animation-duration: 1s;
+          animation-timing-function: ease;
+          animation-delay: 0s;
+          animation-iteration-count: 1;
+          animation-direction: normal;
+          animation-fill-mode: forwards;
+          @for $i from 1 through 15{
+            &:nth-child(#{$i}) {
+                animation-delay: $i * 0.04s;
+            }
+          }
+        }
+        & a .char{
+          color: white;
+          opacity:0;
+          display: inline-block;
+          animation-name: kf-animation;
+          animation-duration: 1s;
+          animation-timing-function: ease;
+          animation-delay: 0s;
+          animation-iteration-count: 1;
+          animation-direction: normal;
+          animation-fill-mode: forwards;
+          @for $i from 1 through 15 {
+            &:nth-child(#{$i}) {
+                animation-delay: $i * 0.04s;
+            }
+          }
+        }
+      }
+      & .btn1{
+        margin-right: 50px;
+        font-size: 20px;
+        // border-radius: 20px;
+        border: white solid 3px;
+        color: white;
+        cursor: pointer;
+        background-color: rgba(0,0,0,0);
+        padding:0 30px;
+        animation-name: kf-animation;
+          animation-duration: 1.3s;
+          animation-timing-function: ease;
+          animation-delay: 0s;
+          animation-iteration-count: 1;
+          animation-direction: normal;
+          animation-fill-mode: forwards;
+        & .char{
+          opacity:0;
+          display: inline-block;
+          animation-name: kf-animation;
+          animation-duration: 1s;
+          animation-timing-function: ease;
+          animation-delay: 0s;
+          animation-iteration-count: 1;
+          animation-direction: normal;
+          animation-fill-mode: forwards;
+          @for $i from 1 through 15 {
+            &:nth-child(#{$i}) {
+                animation-delay: $i * 0.04s;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.char{
+  font-family: Georgia, 'Times New Roman', Times, serif !important; 
+}
+
+// マイページのスタイル
+// .my-page {
+//   background-color: burlywood;
+//   height: 80%;
+//   width: 100%;
+//   & .my-left {
+//     background-color: chocolate;
+//     & .my-left-top {
+//       background-color: cornflowerblue;
+//     }
+//     & .my-left-bottom {
+//       background-color: darkcyan;
+//     }
+//   }
+//   & .my-right {
+//     & .right-top {
+//       background-color: darkorchid;
+//       & .profile-title {
+//         background-color: deeppink;
+//       }
+//       & .my-edit-btn {
+//         background-color: dimgrey;
+//       }
+//     }
+//     & .right-middle {
+//       background-color: indianred;
+//     }
+//     & .right-bottom {
+//       background-color: skyblue;
+//     }
+//   }
+
+// }

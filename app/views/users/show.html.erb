@@ -1,0 +1,60 @@
+<div class="mypage">
+  <div class="left-mypage">
+    <div class="left-my-hight">
+      <div class="my-profile-img">
+        
+        <%# <%= image_tag @user.image %>  
+        
+      </div>
+      <div class="nickname-border">
+        <p><%= @user.nickname %></p>
+      </div>
+    </div>
+    <div class="left-my-low">
+    <ul>
+      <div class="li-border">
+        <li class="profile-btn">Profile</li>
+        <li class="calendar-btn">Calendar</li>
+        <li class="graph-btn">Graph</li>
+      </div>
+    </ul>
+    </div>
+  </div>
+  <div class="right-mypage">
+    <section class="profile">
+        <div class="right-my-hight">
+          <div class="profile-header">
+            <h2 class="profile-title">Profile</h2>
+            <div>
+            <%= link_to root_path do%>
+              <span class="save-btn">Top</span>
+            <% end %>
+            <%# <%= link_to edit_user_path(@user) do %> 
+              <%# <span class="save-btn">Edit</span> %>
+            <%# <% end %> 
+            </div>
+          </div>
+          <div class="profile-text"></div>
+        </div>    
+        <div class="right-my-low">
+          <div class="my-photo">
+            <div class="my-photo-title">My Posts List</div>
+            
+            <ul class = "photo-li">
+            <span class = "list-json"></span>
+                
+                <% @tweets.each do |tweet| %>
+                <li class="photo-up">
+                  <div class="photo-img"></div>
+                  <span><%= tweet.title%></span>
+                <% end %>
+                <div class="pad">
+                  <%= paginate @tweets %>
+                </div>
+                </li> 
+            </ul>
+          </div>
+        </div>
+    </section>
+  </div>
+</div>

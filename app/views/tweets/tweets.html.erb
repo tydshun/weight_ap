@@ -1,4 +1,4 @@
-<%# トップページ %>
+<%# ツイート一覧ページ %>
 <div id="global-container">
 <%# ヘッダー %>
   <header class= "header">
@@ -17,8 +17,10 @@
         <li class = "char1"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span></li>
       <% end %>
 
-      <li class = "char2 char"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span><span class="char">s</span><span class="char">L</span><span class="char">i</span><span class="char">s</span><span class="char">t</span></li>
-      
+      <%= link_to tweets_tweets_path do %>
+        <li class = "char2 char"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span><span class="char">s</span><span class="char">L</span><span class="char">i</span><span class="char">s</span><span class="char">t</span></li>
+      <% end %>
+
       <% if user_signed_in? %>
         <%# ログインしているときの表示 %>
         <%= link_to  destroy_user_session_path do %>
@@ -34,13 +36,25 @@
       <%= link_to user_path(current_user.id) do %>
         <li><span class="char">M</span><span class="char">y</span><span class="char">&nbsp;</span><span class="char">P</span><span class="char">a</span><span class="char">g</span><span class="char">e</span></li>
       <% end %>
-    
     </ul>
 
-    <%# トップテキスト %>
-     <div class= "content-text text-content">
-      <p>Let's do our best  <br>to manage weight !!</p>
-      <%# <%= current_user.nickname %>
+   <%# ツイート一覧ページ %>
+    <div class = "photo-ul ul-photo">
+      <p class = "photo-text">PhotoList</p>
+        <ul class = "photo-li">
+          <span class = "list-json"></span>
+            <% @tweets.each do |tweet| %>
+            <li class="photo-up">
+              <div class="photo-img">
+              <%=image_tag tweet.image, class: 'tweet-photos' %>
+              </div>
+              <%= link_to tweet_path(tweet.id) do %>
+                <span><%= tweet.title%></span>
+              <% end %>
+            <% end %>
+            </li> 
+        </ul> 
+        <%= paginate @tweets %>
     </div>
+  </div>
 </div>
- 
