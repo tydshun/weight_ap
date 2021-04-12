@@ -1,4 +1,4 @@
-<%# トップページ %>
+<%# ツイート一覧ページ %>
 <div id="global-container">
 <%# ヘッダー %>
   <header class= "header">
@@ -37,10 +37,23 @@
     
     </ul>
 
-    <%# トップテキスト %>
-     <div class= "content-text text-content">
-      <p>Let's do our best  <br>to manage weight !!</p>
-      <%# <%= current_user.nickname %>
+   <%# ツイート一覧ページ %>
+    <div class = "photo-ul ul-photo">
+      <p class = "photo-text">PhotoList</p>
+        <ul class = "photo-li">
+          <span class = "list-json"></span>
+            <% @tweets.each do |tweet| %>
+            <li class="photo-up">
+              <div class="photo-img">
+              <%=image_tag tweet.image, class: 'tweet-photos' %>
+              </div>
+              <%= link_to tweet_path(tweet.id) do %>
+                <span><%= tweet.title%></span>
+              <% end %>
+            <% end %>
+            </li> 
+        </ul> 
+        <%= paginate @tweets %>
     </div>
+  </div>
 </div>
- 

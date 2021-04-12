@@ -1,0 +1,102 @@
+<%# トップページ %>
+<div id="global-container">
+  <%# ヘッダー %>
+  <header class= "header">
+    <div class="header-left">
+      <%= link_to root_path, class:"char-list" do%>
+      <%# <a class="char-list" href="#"> %>
+        <span class="char">W</span><span class="char">e</span><span class="char">i</span><span class="char">g</span><span class="char">h</span><span class="char">t</span><span class="char">&nbsp;</span><span class="char">A</span><span class="char">p</span><span class="char">p</span>
+      <%# </a> %>
+      <% end %>
+    </div>
+    <%# ヘッダーライト %>
+    <div class="header-right">
+      <ul class = "menu-list">
+        <%# ツイート投稿ページに遷移 %>
+        <%= link_to new_tweet_path do %>
+          <li class = "char1"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span></li>
+        <% end %>
+
+        <%= link_to tweets_tweets_path do %>
+          <li class = "char2 char"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span><span class="char">s</span><span class="char">L</span><span class="char">i</span><span class="char">s</span><span class="char">t</span></li>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <%# ログインしているときの表示 %>
+          <%= link_to  destroy_user_session_path do %>
+              <li><span class="char">S</span><span class="char">i</span><span class="char">g</span><span class="char">n</span><span class="char">&nbsp;</span><span class="char">o</span><span class="char">u</span><span class="char">t</span></li>
+          <% end %>
+            <%# ログアウトしている際の表示 %>
+          <% else %>
+          <%= link_to new_user_session_path do %>
+            <li><span class="char">S</span><span class="char">i</span><span class="char">g</span><span class="char">n</span><span class="char">&nbsp;</span><span class="char">u</span><span class="char">p</span></li>
+          <% end %>
+        <% end %>
+
+        <li><a href="#"><span class="char">i</span><span class="char">t</span><span class="char">e</span><span class="char">m</span></a></li>
+      </ul>
+    </div> 
+  </header>
+   <%# ツイート詳細ページ %>
+  <div class="tweet-show">
+  <%# 詳細ページの左側 %>
+  <div class="show-left">
+    <div class="show-title">
+      <%= @tweet.title %>
+    </div>
+    <div class="show-image">
+      <%= image_tag(@tweet.image.variant(resize:'30%x30%')) %>
+    </div>
+
+    <div class="show-text">
+      <%= safe_join(@tweet.text.split("\n"),tag(:br)) %>
+    </div>
+
+    <div class="tweets-name">
+      <%= link_to root_path, class: 'tweet-name', method: :get do %>
+        <%= "@#{@tweet.user.nickname}" %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+  <div class="show-right">
+    <div class ="show-comment">
+      <h2>Comment</h2>
+      <%# コメント一覧 %>
+      <div class="comment-index">
+        <div class="comment-lists">
+          <% @comments.each do |comment| %>
+            <%# コメントしたユーザー名 %>
+            <div class="comment-user">
+              <%= link_to root_path(comment.user.id),class:"user-name" do%>
+                <%= "@#{@tweet.user.nickname}" %> (<%= comment.created_at.to_s(:datetime_jp) %>)
+              <% end %>
+            </div>
+
+            <%# コメント内容 %>
+            <div class="comment-text">
+              <%= safe_join(comment.text.split("\n"),tag(:br)) %>
+            </div>
+            <br>
+          <% end %>
+        </div>
+      </div>
+
+      <%= form_with(model: [@tweet, @comment], local: true, class:"with-all") do |f| %>
+        <div class="comment-field">
+          <%= f.text_area :text, placeholder: "Write a comment", rows: "6",cols:"40",class:"comment-area" %> 
+        </div>
+
+        <%= f.label "Comment" ,for:"comment_btn",class:"btn_label"%>
+        <%= f.submit 'Comment',class:"comment-btn",id:"comment_btn" %>
+      <% end %>
+    </div>
+  </div>
+
+  </div>
+</div>
+
+
+
