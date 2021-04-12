@@ -653,10 +653,9 @@ a {
           align-items: center;
   position: absolute;
   width: 50%;
-  height: 80%;
-  top: 3%;
+  height: 70%;
+  top: 20%;
   left: 5%;
-  visibility: hidden;
 }
 
 .photo-ul .photo-li {
@@ -669,6 +668,7 @@ a {
 .photo-ul .photo-text {
   color: white;
   font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .photo-li {
@@ -712,8 +712,7 @@ a {
   height: 92px;
   width: 150px;
 }
-<<<<<<< Updated upstream
-=======
+
 
 .tweet-show {
   color: white;
@@ -731,7 +730,9 @@ a {
 
 .tweet-show .show-left {
   width: 50%;
+
   height: 100%;
+
   text-align: center;
   border-right: 1px solid white;
   padding: 0 2%;
@@ -742,6 +743,7 @@ a {
   padding-bottom: 1%;
 }
 
+
 .tweet-show .show-left .show-image {
   width: 100%;
 }
@@ -750,7 +752,9 @@ a {
   padding-top: 4%;
   height: 40%;
   overflow: scroll;
+
   height: 25%;
+
 }
 
 .tweet-show .show-left .tweets-name {
@@ -815,5 +819,5 @@ a {
   background-color: rgba(0, 0, 0, 0.199);
   color: white;
 }
->>>>>>> Stashed changes
+
 /*# sourceMappingURL=tweets.css.map */

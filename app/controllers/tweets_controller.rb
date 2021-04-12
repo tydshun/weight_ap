@@ -12,13 +12,16 @@ class TweetsController < ApplicationController
   
     def create
       @tweet = Tweet.new(tweet_params)
-      @tweet.save
+      if @tweet.save
+        redirect_to tweets_tweets_path
+      else
+        redirect_to new_tweet_path
+      end
     end
   
     def show
       @comment = Comment.new
-      @comments = @tweet.comments.includes(:user)
-      
+      @comments = @tweet.comments.includes(:user).order("created_at DESC")
     end
   
     def edit
@@ -41,6 +44,10 @@ class TweetsController < ApplicationController
       @tweet.destroy
     end
   
+    def tweets
+      @tweets = Tweet.page(params[:page]).per(9).order('created_at DESC')
+    end
+    
     private
     def tweet_params
       params.require(:tweet).permit(:title, :text, :image).merge(user_id: current_user.id)

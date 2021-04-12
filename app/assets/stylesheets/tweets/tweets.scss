@@ -259,26 +259,26 @@ a {
 
 //一覧表示
 .photo-ul{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   position: absolute;
-   width: 50%;
-   height: 80%;
-   top: 3%;
-   left: 5%;
-   visibility: hidden;
-    & .photo-li{
-      width: 100%;
-      background-color:  rgba(134, 132, 132, 0.1);
-      height: 100%;
-      color: white;
-    }
-    & .photo-text{
-      color: white;
-      font-size: 30px;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 50%;
+  height: 70%;
+  top: 20%;
+  left: 5%;
+  & .photo-li{
+    width: 100%;
+    background-color:  rgba(134, 132, 132, 0.1);
+    height: 100%;
+    color: white;
+  }
+  & .photo-text{
+    color: white;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
 } 
 
 // 投稿一覧
@@ -309,9 +309,7 @@ a {
   width: 150px;
 }
 
-<<<<<<< Updated upstream
-// Calendarのビュー
-=======
+
 //　ツイート詳細ページのスタイル
 .tweet-show {
   color: white;
@@ -327,6 +325,7 @@ a {
   & .show-left {
     width: 50%;
     height: 100%;
+
     text-align: center;
     border-right: 1px solid white;
     padding: 0 2%;
@@ -334,6 +333,7 @@ a {
       font-size: 1.5em;
       padding-bottom: 1%;
     }
+
     & .show-image {
       width: 100%;
     }
@@ -342,6 +342,13 @@ a {
       height: 40%;
       overflow: scroll;
       height: 25%;
+
+    & .show-text {
+      padding-top: 4%;
+      // background-color: blue;
+      height: 40%;
+      overflow: scroll;
+
     }
     & .tweets-name {
       text-align: end;
@@ -400,6 +407,6 @@ a {
     }
   }
 }
->>>>>>> Stashed changes
+
 
 

@@ -45,9 +45,11 @@
       <%= @tweet.title %>
     </div>
     <div class="show-image">
+
       <%= link_to @tweet.image, "data-lightbox" => @tweet.image do %>
         <%= image_tag(@tweet.image.variant(resize:'30%x30%')) %>
       <% end %>
+
     </div>
 
     <div class="show-text">
