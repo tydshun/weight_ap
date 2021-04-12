@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get 'tweets'
       get 'search'
     end
+    resources :comments, only: [:create,:update,:destroy,:edit]
   end
 
   # resources :blogs

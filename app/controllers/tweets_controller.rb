@@ -21,8 +21,7 @@ class TweetsController < ApplicationController
   
     def show
       @comment = Comment.new
-      @comments = @tweet.comments.includes(:user)
-      
+      @comments = @tweet.comments.includes(:user).order("created_at DESC")
     end
   
     def edit
@@ -46,7 +45,7 @@ class TweetsController < ApplicationController
     end
   
     def tweets
-      @tweets = Tweet.page(params[:page]).per(8).order('created_at DESC')
+      @tweets = Tweet.page(params[:page]).per(9).order('created_at DESC')
     end
     
     private

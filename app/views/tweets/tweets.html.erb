@@ -1,4 +1,4 @@
-<%# トップページ %>
+<%# ツイート一覧ページ %>
 <div id="global-container">
 <%# ヘッダー %>
   <header class= "header">
@@ -47,12 +47,13 @@
               <div class="photo-img">
               <%=image_tag tweet.image, class: 'tweet-photos' %>
               </div>
-              
-              <span><%= tweet.title%></span>
+              <%= link_to tweet_path(tweet.id) do %>
+                <span><%= tweet.title%></span>
+              <% end %>
             <% end %>
-        <%= paginate @tweets %>
             </li> 
         </ul> 
+        <%= paginate @tweets %>
     </div>
   </div>
 </div>

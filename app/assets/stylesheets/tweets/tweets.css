@@ -712,4 +712,99 @@ a {
   height: 92px;
   width: 150px;
 }
+
+.tweet-show {
+  color: white;
+  height: 70%;
+  width: 70%;
+  position: absolute;
+  top: 20%;
+  left: 0%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2% 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.tweet-show .show-left {
+  width: 50%;
+  text-align: center;
+  border-right: 1px solid white;
+  padding: 0 2%;
+}
+
+.tweet-show .show-left .show-title {
+  font-size: 1.5em;
+  padding-bottom: 1%;
+}
+
+.tweet-show .show-left .show-text {
+  padding-top: 4%;
+  height: 40%;
+  overflow: scroll;
+}
+
+.tweet-show .show-left .tweets-name {
+  text-align: end;
+}
+
+.tweet-show .show-left .tweets-name .tweet-name {
+  color: white;
+  padding: 0 2%;
+  text-shadow: #FC0 1px 0 10px;
+}
+
+.tweet-show .show-right {
+  width: 50%;
+  margin: 0 2%;
+}
+
+.tweet-show .show-right .show-comment {
+  height: 100%;
+}
+
+.tweet-show .show-right .show-comment h2 {
+  text-align: center;
+  font-size: 1.5em;
+  padding-bottom: 2%;
+}
+
+.tweet-show .show-right .show-comment .comment-index {
+  margin: 2% 0;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.041);
+  overflow: scroll;
+}
+
+.tweet-show .show-right .show-comment .comment-index .comment-lists {
+  padding-bottom: 2%;
+}
+
+.tweet-show .show-right .show-comment .comment-index .comment-lists .comment-user .user-name {
+  color: white;
+}
+
+.tweet-show .show-right .show-comment .comment-index .comment-lists .comment-user .user-name:hover {
+  color: lightblue;
+}
+
+.tweet-show .show-right .show-comment .comment-index .comment-lists .comment-text {
+  border-bottom: 1px solid white;
+  padding: 3%;
+  font-weight: 600;
+}
+
+.tweet-show .show-right .show-comment .comment-field {
+  width: 100%;
+}
+
+.tweet-show .show-right .show-comment .comment-field .comment-area {
+  width: 100%;
+  height: 30%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.199);
+  color: white;
+}
 /*# sourceMappingURL=tweets.css.map */
