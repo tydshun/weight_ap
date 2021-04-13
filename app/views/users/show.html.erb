@@ -40,19 +40,21 @@
           <div class="my-photo">
             <div class="my-photo-title">My Posts List</div>
             
-            <ul class = "photo-li">
+          <ul class = "photo-li">
             <span class = "list-json"></span>
-                
-                <% @tweets.each do |tweet| %>
-                <li class="photo-up">
-                  <div class="photo-img"></div>
-                  <span><%= tweet.title%></span>
-                <% end %>
-                <div class="pad">
-                  <%= paginate @tweets %>
-                </div>
-                </li> 
-            </ul>
+            <% @tweets.each do |tweet| %>
+            <li class="photo-up">
+              <div class="photo-img">
+              <%=image_tag tweet.image, class: 'tweet-photos' %>
+              </div>
+              <%= link_to tweet_path(tweet.id) do %>
+                <span><%= tweet.title%></span>
+              <% end %>
+            <% end %>
+            </li> 
+          </ul> 
+          
+        <%= paginate @tweets %>
           </div>
         </div>
     </section>

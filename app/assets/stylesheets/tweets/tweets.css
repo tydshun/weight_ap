@@ -700,11 +700,17 @@ a {
   -ms-flex-preferred-size: 33%;
       flex-basis: 33%;
   height: 50%;
+  margin-bottom: 1%;
+}
+
+.photo-up a {
+  color: white;
 }
 
 .photo-img {
   height: 100px;
   width: 150px;
+  padding-bottom: 2%;
   margin-bottom: 5px;
 }
 
