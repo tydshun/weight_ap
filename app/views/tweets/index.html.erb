@@ -23,6 +23,7 @@
         <%= link_to new_tweet_path do %>
           <li class = "char1"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span></li>
         <% end %>
+        <% else %>
         <%# ログアウトしている際の表示 %>
         <%= link_to new_user_session_path do %>
           <li><span class="char">S</span><span class="char">i</span><span class="char">g</span><span class="char">n</span><span class="char">&nbsp;</span><span class="char">i</span><span class="char">n</span></li>

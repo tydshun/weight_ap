@@ -268,15 +268,20 @@ li {
 
           }
         }
+        // プロフィール
         & .profile-text {
           margin: 10px;
           height: 300px;
-          border: 2px solid white;
-          & .text-deco {
-            width: 100%;
-            height: 99%;
-            border: none;
+          border: 1px solid white;
+          color: white;
+          & .profile-area {
+            width: 99.4%;
+            height: 296px;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.041);
             font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.5em;
+            color: white;
           }
         }
       }
