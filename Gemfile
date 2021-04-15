@@ -56,4 +56,4 @@ gem 'devise'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'jquery-rails'
-
+gem 'simple_calendar'
