@@ -205,11 +205,10 @@ li {
   height: 300px;
   width: 300px;
   margin: 20px auto;
-  display: block;
   position: relative;
 }
 
-.mypage .left-mypage .left-my-hight .my-profile-img .my-avatar {
+.mypage .left-mypage .left-my-hight .my-profile-img img {
   background-color: rgba(0, 0, 0, 0.1);
   height: 100%;
   width: 100%;
@@ -317,14 +316,21 @@ li {
 .mypage .right-mypage .profile .right-my-hight .profile-text {
   margin: 10px;
   height: 300px;
-  border: 2px solid white;
+  border: 1px solid white;
+  color: white;
+  font-size: 1.5em;
+  overflow: scroll;
+  padding: 1%;
 }
 
-.mypage .right-mypage .profile .right-my-hight .profile-text .text-deco {
-  width: 100%;
-  height: 99%;
-  border: none;
+.mypage .right-mypage .profile .right-my-hight .profile-text .profile-area {
+  width: 99.4%;
+  height: 265px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.041);
   font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1em;
+  color: white;
 }
 
 .mypage .right-mypage .profile .right-my-low {
@@ -338,14 +344,20 @@ li {
   top: 50vh;
 }
 
-.mypage .right-mypage .profile .right-my-low .my-photo-title {
+.mypage .right-mypage .profile .right-my-low .my-photo .my-photo-title {
   margin-left: 50px;
   padding-top: 17px;
   font-size: larger;
+  padding-bottom: 3%;
 }
 
-.mypage .right-mypage .profile .right-my-low .pad {
+.mypage .right-mypage .profile .right-my-low .my-photo .pad {
   padding: 30px 0;
+}
+
+.mypage .right-mypage .profile .right-my-low .my-photo .pagination {
+  text-align: center;
+  margin-top: 3%;
 }
 
 .mypage .right-mypage .graph {

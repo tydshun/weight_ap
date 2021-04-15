@@ -297,10 +297,15 @@ a {
   flex-direction: column;
   flex-basis: 33%;
   height: 50%;
+  margin-bottom: 1%;
+  a {
+    color: white;
+  }
 }
 .photo-img {
   height: 100px;
   width: 150px;
+  padding-bottom: 2%;
   
   margin-bottom: 5px;
 }

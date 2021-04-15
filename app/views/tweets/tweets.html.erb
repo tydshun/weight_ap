@@ -13,8 +13,11 @@
     <div class="header-right">
     <ul class = "menu-list">
       <%# ツイート投稿ページに遷移 %>
-      <%= link_to new_tweet_path do %>
-        <li class = "char1"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span></li>
+      <% if user_signed_in? %>
+        <%= link_to new_tweet_path do %>
+          <li class = "char1"><span class="char">T</span><span class="char">w</span><span class="char">e</span><span class="char">e</span><span class="char">t</span></li>
+        <% end %>
+        <% else %>
       <% end %>
 
       <%= link_to tweets_tweets_path do %>
@@ -28,14 +31,19 @@
         <% end %>
           <%# ログアウトしている際の表示 %>
         <% else %>
-        <%= link_to new_user_session_path do %>
+        <%= link_to new_user_registration_path do %>
           <li><span class="char">S</span><span class="char">i</span><span class="char">g</span><span class="char">n</span><span class="char">&nbsp;</span><span class="char">u</span><span class="char">p</span></li>
         <% end %>
       <% end %>
 
-
-      <%= link_to user_path(current_user.id) do %>
-        <li><span class="char">M</span><span class="char">y</span><span class="char">&nbsp;</span><span class="char">P</span><span class="char">a</span><span class="char">g</span><span class="char">e</span></li>
+      <%if user_signed_in? %>
+        <%= link_to user_path(current_user.id) do %>
+          <li><span class="char">M</span><span class="char">y</span><span class="char">&nbsp;</span><span class="char">P</span><span class="char">a</span><span class="char">g</span><span class="char">e</span></li>
+        <% end %>
+        <% else %>
+        <%= link_to new_user_session_path do %>
+        <li><span class="char">S</span><span class="char">i</span><span class="char">g</span><span class="char">n</span><span class="char">&nbsp;</span><span class="char">i</span><span class="char">n</span></li>
+      <% end %>
       <% end %>
 
     </ul>
