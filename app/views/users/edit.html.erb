@@ -2,9 +2,10 @@
   <div class="left-mypage">
     <div class="left-my-hight">
       <div class="my-profile-img">
-        
-        <%# <%= image_tag @user.image %>  
-        
+        <%= form_with model:@user do |f| %>
+          <%= f.file_field :avatar %>
+          <%= f.submit %>
+        <% end %>
       </div>
       <div class="nickname-border">
         <p><%= @user.nickname %></p>
@@ -37,12 +38,9 @@
             </div>
           </div>
           <div class="profile-text">
-            <%= form_for (@user) do |f| %>
-              <%= f.text_area :profile, class:"profile-area", method: :create %>
-              
-              <%= link_to user_path(current_user.id)  do%>
-                <%= f.submit %>
-              <% end %>
+            <%= form_with model:@user do |f| %>
+              <%= f.text_area :profile, class:"profile-area", placeholder:"事故" %>
+              <%= f.submit %>
             <% end %>
           </div>
         </div>    

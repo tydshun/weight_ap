@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :weights
   has_one_attached :image
 
-  has_one_attached :avater
+  has_one_attached :avatar
 
 
   devise :database_authenticatable, :registerable,

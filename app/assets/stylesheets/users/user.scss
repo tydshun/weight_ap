@@ -169,18 +169,16 @@ li {
       & .my-profile-img {
         height: 300px;
         width: 300px;
-        // background-color: white;
         margin: 20px auto ;
-        display: block;
+        // display: block;
         position: relative;
-        & .my-avatar {
+        & img {
           background-color: rgba(0,0,0,0.1);
           height: 100%;
           width: 100%;
           position: absolute;
           top: 0;
           left: 0;
-          
         }
       }
       & .nickname-border{
@@ -274,14 +272,18 @@ li {
           height: 300px;
           border: 1px solid white;
           color: white;
+          font-size: 1.5em;
+          overflow: scroll;
+          padding: 1%;
           & .profile-area {
             width: 99.4%;
-            height: 296px;
+            height: 265px;
             outline: none;
             background-color: rgba(255, 255, 255, 0.041);
             font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 1.5em;
+            font-size: 1em;
             color: white;
+            
           }
         }
       }

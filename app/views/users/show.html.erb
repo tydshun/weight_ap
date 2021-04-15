@@ -3,7 +3,7 @@
     <div class="left-my-hight">
       <div class="my-profile-img">
         
-        <%# <%= image_tag @user.image %>  
+        <%= image_tag @user.avatar %>
         
       </div>
       <div class="nickname-border">
@@ -39,7 +39,11 @@
             </div>
           </div>
           <div class="profile-text">
-            <%= @user.profile %>
+            <% if @user.profile.present? && @user.profile != nil && @user.profile !=""  %>
+            <%= safe_join(@user.profile.split("\n"),tag(:br)) %>
+            <% else %>
+            <p>自己紹介</p>
+            <% end %>
           </div>
         </div>    
         <div class="right-my-low">
