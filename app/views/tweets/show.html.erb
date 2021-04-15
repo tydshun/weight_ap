@@ -47,7 +47,7 @@
     <div class="show-image">
 
       <%= link_to @tweet.image, "data-lightbox" => @tweet.image do %>
-        <%= image_tag(@tweet.image.variant(resize:'30%x30%')) %>
+        <%= image_tag @tweet.image,height:"250",:style=>"width: 300;" %>
       <% end %>
 
     </div>
@@ -57,7 +57,7 @@
     </div>
 
     <div class="tweets-name">
-      <%= link_to root_path, class: 'tweet-name', method: :get do %>
+      <%= link_to user_path(@tweet.user_id), class: 'tweet-name', method: :get do %>
         <%= "@#{@tweet.user.nickname}" %>
       <% end %>
     </div>

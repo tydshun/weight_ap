@@ -2,7 +2,7 @@
   <div class="left-mypage">
     <div class="left-my-hight">
       <div class="my-profile-img">
-        <%= form_with model:@user do |f| %>
+        <%= form_with model:@user, local: true do |f| %>
           <%= f.file_field :avatar %>
           <%= f.submit %>
         <% end %>
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="profile-text">
-            <%= form_with model:@user do |f| %>
+            <%= form_with model:@user, local: true  do |f| %>
               <%= f.text_area :profile, class:"profile-area", placeholder:"事故" %>
               <%= f.submit %>
             <% end %>
