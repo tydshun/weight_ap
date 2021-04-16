@@ -17,7 +17,8 @@
   <%= area_chart Weight.group_by_day(:created_at, range: 1.weeks.ago.midnight..Time.now).average(:weight_body),
   width: "90%", height: "470px",
   xtitle: "Date",ytitle: "Weights",
-  # decimal: ",",
+  decimal: ".",
+
   # 小数点の設定
   messages: {empty: "入力をお願いします"}
   %>
