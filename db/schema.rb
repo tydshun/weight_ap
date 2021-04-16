@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_04_15_121338) do
   end
 
   create_table "weights", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.decimal "weight_body", precision: 6, scale: 2, null: false
+    t.decimal "weight_body", precision: 5, scale: 2, null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

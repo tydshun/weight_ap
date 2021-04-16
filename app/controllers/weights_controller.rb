@@ -2,6 +2,7 @@ class WeightsController < ApplicationController
   def index
     @weight = Weight.new
     @today_weight = Weight.group_by_day(:created_at).average(:weight_body)
+    
   end
   
   def create
