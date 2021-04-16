@@ -1,0 +1,23 @@
+<div class="weight-field">
+  
+</div>
+
+<div class="today-weight">
+  本日の平均体重は<%= @today_weight %>kg
+</div>
+
+<div>
+  <%# 体重グラフ %>
+  <%= area_chart Weight.group_by_day(:created_at, range: 1.weeks.ago.midnight..Time.now).average(:weight_body),
+  width: "900px", height: "470px",
+  xtitle: "日付",ytitle: "体重",
+  decimal: ",",
+  # 小数点の設定
+  messages: {empty: "入力をお願いします"}
+  %>
+  <%# ここまで %>
+</div>
+
+<div>
+  <%= @weight.weight_body %>
+</div>

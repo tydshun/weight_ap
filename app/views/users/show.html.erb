@@ -19,7 +19,16 @@
       <% end %>
 
         <li class="calendar-btn">Calendar</li>
+      
+      <%= link_to weights_path do %>
         <li class="graph-btn">Graph</li>
+      <% end %>
+
+      <%= form_with model: @weight,url: weights_path, method: "POST", remote: true do |f| %>
+        <%= f.number_field :weight_body, step: "0.1" ,class: "weight-write" %>
+        <%= f.submit '体重を登録', class:'input_submit' %>
+      <% end %>
+
       </div>
     </ul>
     </div>

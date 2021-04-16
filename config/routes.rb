@@ -16,6 +16,5 @@ Rails.application.routes.draw do
   end
 
   # resources :blogs
-  # resources :users
-  # resources :weights
+  resources :weights, only:[:index, :create]
 end
