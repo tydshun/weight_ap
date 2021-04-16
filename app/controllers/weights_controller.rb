@@ -7,12 +7,12 @@ class WeightsController < ApplicationController
   def create
     @weight = Weight.new(weight_params)
     @weight.save
-    redirect_to weight_path
+    redirect_to weights_path
   end
 
   private
 
   def weight_params
-    params.permit(:weight_body).merge(user_id: current_user.id)
+    params.require(:weight).permit(:weight_body).merge(user_id: current_user.id)
   end
 end

@@ -1,5 +1,8 @@
 <div class="weight-field">
-  
+  <%= form_with model: @weight,url: weights_path, method: "POST", remote: true do |f| %>
+    <%= f.number_field :weight_body, step: "0.1" ,class: "weight-write" %>
+    <%= f.submit '体重を登録', class:'input_submit' %>
+  <% end %>
 </div>
 
 <div class="today-weight">
@@ -9,8 +12,8 @@
 <div>
   <%# 体重グラフ %>
   <%= area_chart Weight.group_by_day(:created_at, range: 1.weeks.ago.midnight..Time.now).average(:weight_body),
-  width: "900px", height: "470px",
-  xtitle: "日付",ytitle: "体重",
+  width: "90%", height: "470px",
+  xtitle: "Date",ytitle: "Weights",
   decimal: ",",
   # 小数点の設定
   messages: {empty: "入力をお願いします"}
