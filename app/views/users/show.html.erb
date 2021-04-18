@@ -4,6 +4,8 @@
       <div class="my-profile-img">
         <% if @user.avatar.attached? %>
           <%= image_tag @user.avatar %>
+          <% else %>
+          <img src="/assets/IMG_9232.JPG">
         <% end %>
         
       </div>
