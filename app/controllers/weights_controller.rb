@@ -5,6 +5,7 @@ class WeightsController < ApplicationController
     @today_weight = Weight.where(created_at: Time.zone.now.all_day).average(:weight_body).round(2)
     @week_weight = Weight.where(created_at: 1.week.ago.all_day).average(:weight_body)
     @month_weight = Weight.where(created_at: 1.month.ago.all_day).average(:weight_body)
+    @user = current_user
   end
   
   def create

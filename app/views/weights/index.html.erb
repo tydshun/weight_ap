@@ -4,7 +4,7 @@
       <div class="my-profile-img">
         <% if @user.avatar.attached? %>
           <%= image_tag @user.avatar %>
-        <% else %>
+          <% else %>
           <img src="/assets/IMG_9232.JPG">
         <% end %>
         
@@ -17,7 +17,7 @@
     <ul>
       <div class="li-border">
       <%# プロフィール編集 %>
-      <%= link_to edit_user_path(user) do%>
+      <%= link_to edit_user_path(@user)  do%>
         <li class="profile-btn">Profile</li>
       <% end %>
 
@@ -26,68 +26,45 @@
       <%= link_to weights_path do %>
         <li class="graph-btn">Graph</li>
       <% end %>
-
-      
-
       </div>
     </ul>
     </div>
   </div>
   <div class="right-mypage">
-    <section class="profile">
-        <div class="right-my-hight">
-          <div class="profile-header">
-            <h2 class="profile-title">Profile</h2>
-            <div>
-            <%= link_to root_path do%>
-              <span class="save-btn">Top</span>
-            <% end %>
-            <%= link_to edit_user_path(@user) do %> 
-              <span class="save-btn">Edit</span>
-            <% end  %>
-            </div>
-          </div>
-          <div class="profile-text">
-            <% if @user.profile.present? && @user.profile != nil && @user.profile !=""  %>
-            <%= safe_join(@user.profile.split("\n"),tag(:br)) %>
-            <% else %>
-            <p>自己紹介</p>
-            <% end %>
-          </div>
-        </div>    
-        <div class="right-my-low">
-          <div class="weight-field">
-            <%= form_with model: @weight,url: weights_path, method: "POST", remote: true do |f| %>
-              <%= f.number_field :weight_body, step: "0.1" ,class: "weight-write" %>
-              <%= f.submit '体重を登録', class:'input_submit' %>
-            <% end %>
-          </div>
+    <div class="graph-all">
 
-          <div class="today-weight">
-            本日の平均体重は<%= @today_weight %> kg
-          </div>
-
-          <div>
-            <%# 体重グラフ %>
-            <%= area_chart Weight.group_by_day(:created_at, range: 1.weeks.ago.midnight..Time.now).average(:weight_body),
-            width: "90%", height: "470px",
-            xtitle: "Date",ytitle: "Weights",
-            decimal: ".",
-            suffix: "kg",
-            loading: "データを読み込んでいます...",
-            empty: "データが存在しません",
-            dataset: {borderWidth: 2},
-            round: 2,
-
-            messages: {empty: "入力をお願いします"}
-            %>
-            <%# ここまで %>
-          </div>
-
-          <div>
-            <%= @weight.weight_body %>
-          </div>
+      <div class="graph-top">
+        <div class="weight-field">
+          <%= form_with model: @weight,url: weights_path, method: "POST", remote: true do |f| %>
+            <%= f.number_field :weight_body, step: "0.1" ,class: "weight-write" %>
+            <%= f.submit '体重を登録', class:'input_submit' %>
+          <% end %>
         </div>
-    </section>
+
+        <div class="today-weight">
+          本日の平均体重は<%= @today_weight %> kg
+        </div>
+      </div>
+
+      <div class="weight-graph">
+        <%# 体重グラフ %>
+        <%= area_chart Weight.group_by_day(:created_at, range: 1.weeks.ago.midnight..Time.now).average(:weight_body),
+        width: "96%", height: "100%",
+        xtitle: "Date",ytitle: "Weights",
+        decimal: ".",
+        suffix: "kg",
+        loading: "データを読み込んでいます...",
+        empty: "データが存在しません",
+        round: 2,
+        messages: {empty: "入力をお願いします"}
+        
+        %>
+        <%# ここまで %>
+      </div>
+
+      <div>
+        <%= @weight.weight_body %>
+      </div>
+    </div>
   </div>
 </div>
