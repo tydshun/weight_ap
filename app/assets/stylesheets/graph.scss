@@ -1,0 +1,16 @@
+.graph-all {
+  height: 100%;
+  & .graph-top {
+    display: flex;
+    justify-content: space-around;
+    & .weight-field {
+    }
+    & .today-weight {
+      padding-top: 0.5%;
+    }
+  }
+  & .weight-graph {
+    height: 60%;
+    
+  }
+}

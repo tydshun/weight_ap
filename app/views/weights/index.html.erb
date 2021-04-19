@@ -32,7 +32,7 @@
   </div>
   <div class="right-mypage">
     <div class="graph-all">
-    
+
       <div class="graph-top">
         <div class="weight-field">
           <%= form_with model: @weight,url: weights_path, method: "POST", remote: true do |f| %>
@@ -46,22 +46,21 @@
         </div>
       </div>
 
-      <section>
+      <div class="weight-graph">
         <%# 体重グラフ %>
         <%= area_chart Weight.group_by_day(:created_at, range: 1.weeks.ago.midnight..Time.now).average(:weight_body),
-        width: "90%", height: "470px",
+        width: "96%", height: "100%",
         xtitle: "Date",ytitle: "Weights",
         decimal: ".",
         suffix: "kg",
         loading: "データを読み込んでいます...",
         empty: "データが存在しません",
-        dataset: {borderWidth: 2},
         round: 2,
-
         messages: {empty: "入力をお願いします"}
+        
         %>
         <%# ここまで %>
-      </section>
+      </div>
 
       <div>
         <%= @weight.weight_body %>

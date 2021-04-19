@@ -1,0 +1,20 @@
+.graph-all {
+  height: 100%;
+}
+
+.graph-all .graph-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.graph-all .graph-top .today-weight {
+  padding-top: 0.5%;
+}
+
+.graph-all .weight-graph {
+  height: 60%;
+}
+/*# sourceMappingURL=graph.css.map */
