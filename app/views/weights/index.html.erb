@@ -32,7 +32,6 @@
   </div>
   <div class="right-mypage">
     <div class="graph-all">
-
       <div class="graph-top">
         <div class="weight-field">
           <%= form_with model: @weight,url: weights_path, method: "POST", remote: true do |f| %>
@@ -60,6 +59,18 @@
         
         %>
         <%# ここまで %>
+      </div>
+
+      <div class="weight-info">
+        <p>身長を入力して下さい。</p>
+        <p>□□□.□cm</p>
+        <div class="bmi-area">
+          本日のBMIは22です。
+        </div>
+        <div class="bmi-area2">
+          適正体重は63kgで、目標体重より現在-13.56kgです。
+        </div>
+
       </div>
 
       <div>
