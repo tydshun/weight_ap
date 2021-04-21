@@ -5,12 +5,14 @@ class WeightsController < ApplicationController
     @today_weight = Weight.where(created_at: Time.zone.now.all_day).average(:weight_body)
     @week_weight = Weight.where(created_at: 1.week.ago.all_day).average(:weight_body)
     @month_weight = Weight.where(created_at: 1.month.ago.all_day).average(:weight_body)
-    # @bmi = (@today_weight / (height2 ** 2))
-    # @height1 = 
+    # @bmi = (@today_weight / (height ** 2))
+    
     @user = current_user
   end
   
   def create
+    @user = current_user
+
     @weight = Weight.new(weight_params)
     @weight.save
     redirect_to weights_path
@@ -19,6 +21,6 @@ class WeightsController < ApplicationController
   private
 
   def weight_params
-    params.require(:weight).permit(:weight_body).merge(user_id: current_user.id)
+    params.require(:weight).permit(:weight_body, :height).merge(user_id: current_user.id)
   end
 end
