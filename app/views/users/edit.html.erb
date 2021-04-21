@@ -40,9 +40,10 @@
           <div class="profile-text">
             <%= form_with model:@user do |f| %>
               <%= f.text_area :profile, class:"profile-area", placeholder:"自己紹介欄" %>
+          </div>
+              <%= f.number_field :height, class:"height-area"%>cm
               <%= f.submit %>
             <% end %>
-          </div>
         </div>    
         <div class="right-my-low">
           <div class="my-photo">

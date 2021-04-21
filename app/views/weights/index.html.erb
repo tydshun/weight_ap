@@ -63,7 +63,11 @@
 
       <div class="weight-info">
         <p>身長を入力して下さい。</p>
-        <p>□□□.□cm</p>
+        <%= form_with  model: @weight, url: weights_path do |f| %>
+          <%= f.number_field :height, class: "user-height" %> cm
+          <%= f.submit %>
+          <p><%= @weight.height %>cm</p>
+        <% end %>
         <div class="bmi-area">
           本日のBMIは22です。
         </div>
