@@ -9,42 +9,34 @@
         <% end %>
         
       </div>
+      <%# ニックネームを表示 %>
       <div class="nickname-border">
         <p><%= @user.nickname %></p>
       </div>
     </div>
-    <div class="left-my-low">
-    <ul>
-      <div class="li-border">
-      <%# プロフィール編集 %>
-      <%= link_to edit_user_path(@user)  do%>
-        <li class="profile-btn">Profile</li>
-      <% end %>
 
-        <li class="calendar-btn">Calendar</li>
-      
-      <%= link_to weights_path do %>
-        <li class="graph-btn">Graph</li>
-      <% end %>
-      </div>
-    </ul>
+    <%# メニュー欄 %>
+    <div class="left-my-low">
+      <ul>
+        <div class="li-border">
+        <%# プロフィール編集 %>
+        <%= link_to edit_user_path(@user)  do%>
+          <li class="profile-btn">Profile</li>
+        <% end %>
+
+          <li class="calendar-btn">Calendar</li>
+        
+        <%= link_to weights_path do %>
+          <li class="graph-btn">Graph</li>
+        <% end %>
+        </div>
+      </ul>
     </div>
   </div>
+
   <div class="right-mypage">
+    <%# グラフに関するグループ %>
     <div class="graph-all">
-      <div class="graph-top">
-        <div class="weight-field">
-          <%= form_with model: @weight, url: weights_path, method: "POST", remote: true do |f| %>
-            <%= f.number_field :weight_body, step: "0.1" ,class: "weight-write" %>
-            <%= f.submit '体重を登録', class:'input_submit' %>
-          <% end %>
-        </div>
-
-        <div class="today-weight">
-          本日の平均体重は<%= @today_weight %> kg
-        </div>
-      </div>
-
       <div class="weight-graph">
         <%# 体重グラフ %>
         <%= area_chart @user_data.group_by_day(:created_at, range: 1.weeks.ago.midnight..Time.now).average(:weight_body),
@@ -56,15 +48,36 @@
         empty: "データが存在しません",
         round: 2,
         messages: {empty: "入力をお願いします"}
-        
         %>
         <%# ここまで %>
       </div>
 
+      <div class="graph-top"> 
+        <%# 体重登録欄 %>
+        <div class="weight-field">
+          <%= form_with model: @weight, url: weights_path, method: "POST", remote: true do |f| %>
+            <%= f.number_field :weight_body, step: "0.1" ,class: "weight-write" %>
+            <%= f.submit '体重を登録', class:'input_submit' %>
+          <% end %>
+        </div>
+
+        <%# 今日の平均体重 %>
+        <div class="today-weight">
+          <%# 体重の記録があるか？ %>
+          <% if @today_weight.present? %>
+            本日の平均体重は<%= @today_weight.round(2) %> kg
+            <% else %>
+            ← 本日の体重を記録することで、BMIの計算を行います。
+          <% end %>
+        </div>
+      </div>
+
+      <%# BMIなどの表示 %>
       <div class="weight-info">
+        <%# 身長を登録しているかどうか %>
         <% if @user.height.present? %>
           <%= form_with  model: @user, url: weights_path do |f| %>
-            <p><%= @user.height %>cm</p>
+            <p>身長: <%= @user.height %>cm</p>
           <% end %>
           <div class="bmi-area">
             <% if @user.height.present? && @today_weight.present?  %>
@@ -72,28 +85,36 @@
             <% end %>
           </div>
 
-            <%# <% if @week_weight.present?%>
-              <%# 本日のBMIは22です。 <%= @bmi_week.round(1) %>
-            <%# <% end %>
-
+          <%# 適正体重の計算 %>
           <div class="bmi-area2">
             <% if @today_weight.present? %>
-              身長から割り出される適正体重は<%= @standard_weight.round(2) %>kgであり、一番健康とされている体重より現在、<%= @difference_weight.round(2)%>kgです。
+              <%# 適正体重との差より少ない場合 %>
+              <% if @difference_weight < 0 %>
+                身長から割り出される適正体重は<%= @standard_weight.round(2) %>kgであり、一番健康とされている体重より現在、<%= @difference_weight.round(2)%>kg少ない結果となります。
+              <%# 適正体重との差がない場合 %>
+              <% elsif @difference_weight == 0 %>
+                身長から割り出される適正体重は<%= @standard_weight.round(2) %>kgであり、一番健康とされている体重という、最も健康という結果となります。
+              <%# 適正体重との差より多い場合 %>
+              <% else %>
+                身長から割り出される適正体重は<%= @standard_weight.round(2) %>kgであり、一番健康とされている体重より現在、<%= @difference_weight.round(2)%>kgと多い結果となります。
+              <% end %>
             <% end %>
+            <div class="jasso-url">
+              <%= link_to "日本肥満学会", "http://www.jasso.or.jp/" %>
+              では、BMIが22を適正体重（標準体重）とし、統計的に最も病気になりにくい体重とされています。 <br>
+              25以上を肥満、18.5未満を低体重と分類しています。
+            </div>
           </div>
         <% else %>
           Profile画面で身長を登録した際に、BMIを計測できます。
         <% end %>
       </div>
 
+      <%# １ヶ月前のデータを見るための記述 %>
       <div class="season-graph">
         <%= link_to  month_weights_path do %>
           1ヶ月前
         <% end %>
-      </div>
-
-      <div>
-        <%= @weight.weight_body %>
       </div>
     </div>
   </div>
