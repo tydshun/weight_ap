@@ -32,22 +32,9 @@
   </div>
   <div class="right-mypage">
     <div class="graph-all">
-      <div class="graph-top">
-        <div class="weight-field">
-          <%= form_with model: @weight, url: weights_path, method: "POST", remote: true do |f| %>
-            <%= f.number_field :weight_body, step: "0.1" ,class: "weight-write" %>
-            <%= f.submit '体重を登録', class:'input_submit' %>
-          <% end %>
-        </div>
-
-        <div class="today-weight">
-          本日の平均体重は<%= @today_weight %> kg
-        </div>
-      </div>
-
       <div class="weight-graph">
         <%# 体重グラフ %>
-        <%= area_chart @user_data.group_by_day(:created_at, range: 1.months.ago.midnight..Time.now).average(:weight_body),
+        <%= area_chart @user_data.group_by_day(:created_at, range: 37.days.ago.beginning_of_day..30.days.ago.end_of_day).average(:weight_body),
         width: "96%", height: "100%",
         xtitle: "Date",ytitle: "Weights",
         decimal: ".",
@@ -61,33 +48,46 @@
         <%# ここまで %>
       </div>
 
+      <div class="today-weight">
+        30日前の週の平均体重は<%= @month_weight %> kg
+      </div>
+
       <div class="weight-info">
         <% if @user.height.present? %>
           <%= form_with  model: @user, url: weights_path do |f| %>
             <p><%= @user.height %>cm</p>
           <% end %>
           <div class="bmi-area">
-            <% if @user.height.present? && @today_weight.present?  %>
-              <p>本日のBMIは<%= @bmi.round(2) %>です。</p>  
+            <% if @user.height.present? && @month_weight.present?  %>
+              <p>30日前の週のBMIは<%= @bmi.round(2) %>でした。</p>  
             <% end %>
           </div>
 
-            <%# <% if @week_weight.present?%>
-              <%# 本日のBMIは22です。 <%= @bmi_week.round(1) %>
-            <%# <% end %>
-
           <div class="bmi-area2">
-            <% if @today_weight.present? %>
-              身長から割り出される適正体重は<%= @standard_weight.round(2) %>kgであり、一番健康とされている体重より現在、<%= @difference_weight.round(2)%>kgです。
+            <% if @month_weight.present? %>
+              身長から割り出される適正体重は<%= @standard_weight.round(2) %>kgであり、一番健康とされている体重より30日前の週は、<%= @difference_weight.round(2)%>kgでした。
+              <% if @week_weight.present? %>
+                <% if @wm_weight > 0 %>
+                  <div> 又、今週の平均体重は、(<%= @week_weight.round(2) %>kg)であり、30日前の週の平均体重(<%= @month_weight %> kg)との差は <%= @wm_weight %>kg 増えてます。</div>
+                <% elsif @wm_weight == 0 %>
+                  <div> 又、今週の平均体重は、(<%= @week_weight.round(2) %>kg)であり、30日前の週の平均体重(<%= @month_weight %> kg)との差は <%= @wm_weight %>kg であり、増減はしていません。</div>
+                <% else %>
+                  <div> 又、今週の平均体重は、(<%= @week_weight.round(2) %>kg)であり、30日前の週の平均体重(<%= @month_weight %> kg)との差は <%= @wm_weight %>kg であり、減ってます。</div>
+                <% end %>
+              <% end %>
             <% end %>
           </div>
         <% else %>
           Profile画面で身長を登録した際に、BMIを計測できます。
         <% end %>
+
+
       </div>
 
-      <div>
-        <%= @weight.weight_body %>
+      <div class="season-graph">
+        <%= link_to  weights_path do %>
+          現在
+        <% end %>
       </div>
     </div>
   </div>
