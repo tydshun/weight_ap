@@ -47,7 +47,7 @@
 
       <div class="weight-graph">
         <%# 体重グラフ %>
-        <%= area_chart @user_data.group_by_day(:created_at, range: 1.weeks.ago.midnight..Time.now).average(:weight_body),
+        <%= area_chart @user_data.group_by_day(:created_at, range: 1.months.ago.midnight..Time.now).average(:weight_body),
         width: "96%", height: "100%",
         xtitle: "Date",ytitle: "Weights",
         decimal: ".",
@@ -83,12 +83,6 @@
           </div>
         <% else %>
           Profile画面で身長を登録した際に、BMIを計測できます。
-        <% end %>
-      </div>
-
-      <div class="season-graph">
-        <%= link_to  month_weights_path do %>
-          1ヶ月前
         <% end %>
       </div>
 

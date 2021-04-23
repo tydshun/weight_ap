@@ -16,5 +16,12 @@ Rails.application.routes.draw do
   end
 
   # resources :blogs
-  resources :weights, only:[:index, :create]
+  resources :weights do
+    collection do
+      get 'bmi'
+      get 'month'
+      get 'three_month'
+      get 'six_month'
+    end
+  end
 end
