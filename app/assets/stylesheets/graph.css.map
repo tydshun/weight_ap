@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,UAAU,CAAC;EACT,MAAM,EAAE,IAAI;CAcb;;AAfD,AAEE,UAFQ,CAEN,UAAU,CAAC;EACX,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,YAAY;CAM9B;;AAVH,AAOI,UAPM,CAEN,UAAU,CAKR,aAAa,CAAC;EACd,WAAW,EAAE,IAAI;CAClB;;AATL,AAWE,UAXQ,CAWN,aAAa,CAAC;EACd,MAAM,EAAE,GAAG;CAEZ",
+    "mappings": "",
     "sources": [
         "graph.scss"
     ],

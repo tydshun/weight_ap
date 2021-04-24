@@ -1,1 +1,71 @@
-/* No CSS *//*# sourceMappingURL=weights.css.map */
+.graph-all {
+  height: 100%;
+}
+
+.graph-all .weight-graph {
+  padding-top: 3%;
+}
+
+.graph-all .graph-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.graph-all .weight-graph {
+  height: 60%;
+}
+
+.graph-all .weight-info {
+  padding-top: 3%;
+}
+
+.graph-all .weight-info .info-header {
+  font-size: 1.3em;
+  border-bottom: 1px solid white;
+  text-shadow: 5px 2px rgba(255, 255, 255, 0.411);
+}
+
+.graph-all .weight-info .today-weight {
+  padding-top: 1%;
+}
+
+.graph-all .weight-info .target-weight {
+  padding-top: 0.5%;
+}
+
+.graph-all .weight-info .user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 0.5%;
+}
+
+.graph-all .weight-info .bmi-area2 {
+  padding-top: 0.5%;
+}
+
+.graph-all .weight-info .bmi-area2 .jasso-url {
+  padding-top: 0.5%;
+}
+
+.graph-all .weight-info .bmi-area2 .jasso-url p {
+  padding-top: 0.5%;
+}
+
+.graph-all .weight-info .bmi-area2 .jasso-url a {
+  color: gray;
+  border-bottom: 1px solid gray;
+}
+
+.graph-all .season-graph {
+  padding-top: 4%;
+}
+
+.graph-all .season-graph .graph-month {
+  color: white;
+  border-bottom: 1px solid white;
+}
+/*# sourceMappingURL=weights.css.map */

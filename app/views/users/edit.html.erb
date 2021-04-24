@@ -14,19 +14,29 @@
     <div class="left-my-low">
     <ul>
       <div class="li-border">
-        <li class="profile-btn">Profile</li>
-        <li class="calendar-btn">Calendar</li>
-        <li class="graph-btn">Graph</li>
+        <%# ーーー自身のprofile画面に遷移ーーー %>
+        <%= link_to user_path do%>
+          <li class="profile-btn">Profile</li>
+        <% end %>
+          <li class="calendar-btn">Calendar</li>
+
+          <%# ーーーグラフ画面に遷移ーーー %>
+          <%= link_to weights_path do %>
+            <li class="graph-btn">Graph</li>
+          <% end %>
       </div>
     </ul>
     </div>
   </div>
+  <%# ーーー画面右側の表示ーーー %>
   <div class="right-mypage">
     <section class="profile">
-        <div class="right-my-hight">
-          <div class="profile-header">
-            <h2 class="profile-title">Profile</h2>
-            <div>
+      <%# ーーー画面右上の表示ーーー %>
+      <div class="right-my-hight">
+        <div class="profile-header">
+          <h2 class="profile-title">Profile</h2>
+          <%# ーーーtopと編集ページに遷移ーーー %>
+          <div class="path-header">
             <%= link_to root_path do%>
               <span class="save-btn">Top</span>
             <% end %>
@@ -34,36 +44,42 @@
             <%= link_to user_path(@user) do %> 
               <span class="save-btn">Back</span>
             <% end %>
+          </div>
+        </div>
+        <%# ーーーprofile編集画面ーーー %>
+        <div class="profile-text">
+          <%= form_with model:@user do |f| %>
+            <%= f.text_area :profile, class:"profile-area", placeholder:"自己紹介欄" %>
+            <%= f.number_field :height, placeholder:"現在の身長を入力", class:"height-area"%>cm
+            <%= f.number_field :target_weight, step: "0.1",  placeholder:"目標体重を入力", class:"t-weight-area"%>kg
+            <%= f.submit %>
+          <% end %>
+        </div>
+      </div>    
 
-            </div>
-          </div>
-          <div class="profile-text">
-            <%= form_with model:@user do |f| %>
-              <%= f.text_area :profile, class:"profile-area", placeholder:"自己紹介欄" %>
-              <%= f.number_field :height, class:"height-area"%>cm
-              <%= f.submit %>
-            <% end %>
-          </div>
-        </div>    
+        <%# ーーー画面右下の欄ーーー %>
         <div class="right-my-low">
           <div class="my-photo">
-            <div class="my-photo-title">My Posts List</div>
+            <div class="my-photo-title">
+              My Posts List
+            </div>
             
-          <ul class = "photo-li">
-            <span class = "list-json"></span>
-            <% @tweets.each do |tweet| %>
-            <li class="photo-up">
-              <div class="photo-img">
-              <%=image_tag tweet.image, class: 'tweet-photos' %>
-              </div>
-              <%= link_to tweet_path(tweet.id) do %>
-                <span><%= tweet.title%></span>
+            <%# ーーー自身の投稿リストーーー %>
+            <ul class = "photo-li">
+              <span class = "list-json"></span>
+              <% @tweets.each do |tweet| %>
+              <li class="photo-up">
+                <div class="photo-img">
+                <%=image_tag tweet.image, class: 'tweet-photos' %>
+                </div>
+                <%= link_to tweet_path(tweet.id) do %>
+                  <span><%= tweet.title%></span>
+                <% end %>
               <% end %>
-            <% end %>
-            </li> 
-          </ul> 
-          
-        <%= paginate @tweets %>
+              </li> 
+            </ul> 
+            <%# ーーーページネーションーーー %>
+            <%= paginate @tweets %>
           </div>
         </div>
     </section>

@@ -2,35 +2,33 @@
   <div class="left-mypage">
     <div class="left-my-hight">
       <div class="my-profile-img">
+        <%# ーーーアバター登録されているかどうかの証券分岐ーーー %>
         <% if @user.avatar.attached? %>
           <%= image_tag @user.avatar %>
           <% else %>
           <img src="/assets/IMG_9232.JPG">
         <% end %>
-        
       </div>
       <div class="nickname-border">
         <p><%= @user.nickname %></p>
       </div>
     </div>
     <div class="left-my-low">
-    <ul>
-      <div class="li-border">
-      <%# プロフィール編集 %>
-      <%= link_to edit_user_path  do%>
-        <li class="profile-btn">Profile</li>
-      <% end %>
+      <ul>
+        <div class="li-border">
+          <%# ーーープロフィール編集ページに遷移ーーー %>
+          <%= link_to edit_user_path(@user) do%>
+            <li class="profile-btn">Profile edit</li>
+          <% end %>
 
-        <li class="calendar-btn">Calendar</li>
-      
-      <%= link_to weights_path do %>
-        <li class="graph-btn">Graph</li>
-      <% end %>
+            <li class="calendar-btn">Calendar</li>
 
-      
-
-      </div>
-    </ul>
+          <%# ーーー体重ページに遷移ーーー %>
+          <%= link_to weights_path do %>
+            <li class="graph-btn">Graph</li>
+          <% end %>
+        </div>
+      </ul>
     </div>
   </div>
   <div class="right-mypage">
@@ -54,27 +52,52 @@
             <p>自己紹介</p>
             <% end %>
           </div>
-          身長：<%= @user.height %>cm
-        </div>    
+
+          <a class="height-if">
+            <% if @user.height.present? %>
+              <a>身長：<%= @user.height %> cm</a>
+            <% else %>
+              <a>現在、身長は登録されていません。</a>
+            <% end %>
+          </a>
+
+          <a class="target-if">
+            <% if @user.target_weight.present? %>
+              <a>目標体重： <%= @user.target_weight %> kg</a>
+            <% else %>
+              <a>現在、目標体重は登録されていません。</a>
+            <% end %>
+          </a>
+        </div>
+
         <div class="right-my-low">
           <div class="my-photo">
-            <div class="my-photo-title">My Posts List</div>
-            
-          <ul class = "photo-li">
-            <span class = "list-json"></span>
-            <% @tweets.each do |tweet| %>
-            <li class="photo-up">
-              <div class="photo-img">
-              <%=image_tag tweet.image, class: 'tweet-photos' %>
-              </div>
-              <%= link_to tweet_path(tweet.id) do %>
-                <span><%= tweet.title%></span>
-              <% end %>
+            <%# 自分の投稿一覧 %>
+            <div class="my-photo-title">
+              My Posts List
+            </div>
+
+            <%# 自分の投稿がある時の条件 %>
+            <% if @tweets.present? %>
+              <ul class = "photo-li">
+                <span class = "list-json"></span>
+                <% @tweets.each do |tweet| %>
+                <li class="photo-up">
+                  <div class="photo-img">
+                  <%=image_tag tweet.image, class: 'tweet-photos' %>
+                  </div>
+                  <%= link_to tweet_path(tweet.id) do %>
+                    <span><%= tweet.title%></span>
+                  <% end %>
+                <% end %>
+                </li> 
+              </ul> 
+
+              <%# ページネーション %>
+              <%= paginate @tweets %>
+            <% else %>
+              現在、投稿はありません。
             <% end %>
-            </li> 
-          </ul> 
-          
-        <%= paginate @tweets %>
           </div>
         </div>
     </section>

@@ -1,0 +1,90 @@
+<div class="mypage">
+  <div class="left-mypage">
+    <div class="left-my-hight">
+      <div class="my-profile-img">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar %>
+          <% else %>
+          <img src="/assets/IMG_9232.JPG">
+        <% end %>
+        
+      </div>
+      <div class="nickname-border">
+        <p><%= @user.nickname %></p>
+      </div>
+    </div>
+    <div class="left-my-low">
+    <ul>
+      <div class="li-border">
+      <%# プロフィール編集 %>
+      <%= link_to edit_user_path(@user)  do%>
+        <li class="profile-btn">Profile</li>
+      <% end %>
+
+        <li class="calendar-btn">Calendar</li>
+      
+      <%= link_to weights_path do %>
+        <li class="graph-btn">Graph</li>
+      <% end %>
+      </div>
+    </ul>
+    </div>
+  </div>
+  <div class="right-mypage">
+    <div class="graph-all">
+      <div class="weight-graph">
+        <%# 体重グラフ %>
+        <%= area_chart @user_data.group_by_day(:created_at, range: 37.days.ago.beginning_of_day..30.days.ago.end_of_day).average(:weight_body),
+        width: "96%", height: "100%",
+        xtitle: "Date",ytitle: "Weights",
+        decimal: ".",
+        suffix: "kg",
+        loading: "データを読み込んでいます...",
+        empty: "データが存在しません",
+        round: 2,
+        messages: {empty: "入力をお願いします"}
+        
+        %>
+        <%# ここまで %>
+      </div>
+
+      <div class="today-weight">
+        <% if @month_weight.present? %>
+        ・30日前の週の平均体重は<%= @month_weight %> kg でした。
+        <% else %>
+        ・現在、30日前の週の記録データがありません。
+        <% end %>
+      </div>
+
+      <%# BMIなどの計算 %>
+      <div class="weight-info">
+        <% if @user.height.present? %>
+          <div class="bmi-area2">
+            <% if @month_weight.present? %>
+              ・身長(<%= @user.height %>cm)から割り出される適正体重は、<%= @standard_weight.round(2) %>kgであり、<br>
+              一番健康とされている体重より30日前の週の体重は、<%= @difference_weight.round(2)%>kgでBMIは <%= @bmi.round(2) %> でした。
+              <% if @week_weight.present? %>
+                <%# 約1ヶ月前との差を比較の条件 %>
+                <% if @wm_weight > 0 %>
+                  <div> ・又、今週の平均体重は、(<%= @week_weight.round(2) %>kg)であり、30日前の週の平均体重(<%= @month_weight %> kg)との差は <%= @wm_weight %>kg 増えてます。</div>
+                <% elsif @wm_weight == 0 %>
+                  <div> ・又、今週の平均体重は、(<%= @week_weight.round(2) %>kg)であり、30日前の週の平均体重(<%= @month_weight %> kg)との差は <%= @wm_weight %>kg であり、増減はしていません。</div>
+                <% else %>
+                  <div> ・又、今週の平均体重は、(<%= @week_weight.round(2) %>kg)であり、30日前の週の平均体重(<%= @month_weight %> kg)との差は <%= @wm_weight %>kg であり、減ってます。</div>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        <% else %>
+          Profile画面で身長を登録した際に、BMIを計測できます。
+        <% end %>
+      </div>
+      <%# 今週のグラフに遷移 %>
+      <div class="season-graph">
+        <%= link_to  weights_path do %>
+          現在に戻る
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
