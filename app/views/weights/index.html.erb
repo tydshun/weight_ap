@@ -60,17 +60,17 @@
             <%= f.submit '体重を記録', class:'input_submit' %>
           <% end %>
         </div>
-
+        <div>※1日で何回か記録することにより、1日の平均体重を記録出来ます。</div>
+      </div>
         <%# 今日の平均体重 %>
         <div class="today-weight">
           <%# 体重の記録があるか？ %>
           <% if @today_weight.present? %>
-            本日の体重は<%= @today_weight.round(2) %> kg ※1日で何回か記録することにより、1日の平均体重を記録出来ます。
+            本日の体重は<%= @today_weight.round(2) %> kg 
             <% else %>
             ← 本日の体重を記録することで、BMIの計算を行います。
           <% end %>
         </div>
-      </div>
 
       <%# BMIなどの表示 %>
       <div class="weight-info">
