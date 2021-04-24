@@ -65,7 +65,7 @@
         <div class="today-weight">
           <%# 体重の記録があるか？ %>
           <% if @today_weight.present? %>
-            本日の体重は<%= @today_weight.round(2) %> kg ※何回かに分けることにより、1日の平均体重を記録出来ます。
+            本日の体重は<%= @today_weight.round(2) %> kg ※1日で何回か記録することにより、1日の平均体重を記録出来ます。
             <% else %>
             ← 本日の体重を記録することで、BMIの計算を行います。
           <% end %>
