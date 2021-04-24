@@ -7,7 +7,7 @@ class WeightsController < ApplicationController
       @today_weight = @user_data.where(created_at: Time.zone.now.all_day).average(:weight_body)
       @week_weight = @user_data.where(created_at: 1.week.ago.all_day).average(:weight_body)
       @month_weight = @user_data.where(created_at: 1.month.ago.all_day).average(:weight_body)
-      if @today_weight.present?
+      if @today_weight && @user.height.present?
         @bmi = (@today_weight / (@user.height * @user.height) * 10000)
         @standard_weight = (@user.height * @user.height * 22.0 / 10000)
         @difference_weight = @today_weight - @standard_weight
