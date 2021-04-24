@@ -14,23 +14,21 @@
       </div>
     </div>
     <div class="left-my-low">
-    <ul>
-      <div class="li-border">
-      <%# プロフィール編集 %>
-      <%= link_to user_path  do%>
-        <li class="profile-btn">Profile</li>
-      <% end %>
+      <ul>
+        <div class="li-border">
+          <%# ーーープロフィール編集ページに遷移ーーー %>
+          <%= link_to edit_user_path(@user) do%>
+            <li class="profile-btn">Profile edit</li>
+          <% end %>
 
-        <li class="calendar-btn">Calendar</li>
-      
-      <%= link_to weights_path do %>
-        <li class="graph-btn">Graph</li>
-      <% end %>
+            <li class="calendar-btn">Calendar</li>
 
-      
-
-      </div>
-    </ul>
+          <%# ーーー体重ページに遷移ーーー %>
+          <%= link_to weights_path do %>
+            <li class="graph-btn">Graph</li>
+          <% end %>
+        </div>
+      </ul>
     </div>
   </div>
   <div class="right-mypage">
@@ -54,9 +52,24 @@
             <p>自己紹介</p>
             <% end %>
           </div>
-          身長：<%= @user.height %>cm
-          目標体重： <%= @user.target_weight %>
-        </div>    
+
+          <a class="height-if">
+            <% if @user.height.present? %>
+              <a>身長：<%= @user.height %> cm</a>
+            <% else %>
+              <a>現在、身長は登録されていません。</a>
+            <% end %>
+          </a>
+
+          <a class="target-if">
+            <% if @user.target_weight.present? %>
+              <a>目標体重： <%= @user.target_weight %> kg</a>
+            <% else %>
+              <a>現在、目標体重は登録されていません。</a>
+            <% end %>
+          </a>
+        </div>
+
         <div class="right-my-low">
           <div class="my-photo">
             <%# 自分の投稿一覧 %>
