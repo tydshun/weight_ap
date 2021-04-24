@@ -2,12 +2,12 @@
   <div class="left-mypage">
     <div class="left-my-hight">
       <div class="my-profile-img">
+        <%# ーーーアバター登録されているかどうかの証券分岐ーーー %>
         <% if @user.avatar.attached? %>
           <%= image_tag @user.avatar %>
           <% else %>
           <img src="/assets/IMG_9232.JPG">
         <% end %>
-        
       </div>
       <div class="nickname-border">
         <p><%= @user.nickname %></p>

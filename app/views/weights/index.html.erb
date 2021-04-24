@@ -19,16 +19,16 @@
     <div class="left-my-low">
       <ul>
         <div class="li-border">
-        <%# プロフィール編集 %>
-        <%= link_to edit_user_path(@user)  do%>
-          <li class="profile-btn">Profile</li>
-        <% end %>
+          <%# プロフィール編集 %>
+          <%= link_to edit_user_path(@user)  do%>
+            <li class="profile-btn">Profile</li>
+          <% end %>
 
-          <li class="calendar-btn">Calendar</li>
-        
-        <%= link_to weights_path do %>
-          <li class="graph-btn">Graph</li>
-        <% end %>
+            <li class="calendar-btn">Calendar</li>
+          
+          <%= link_to weights_path do %>
+            <li class="graph-btn">Graph</li>
+          <% end %>
         </div>
       </ul>
     </div>
@@ -63,42 +63,46 @@
         <div>※1日で何回か記録することにより、1日の平均体重を記録出来ます。</div>
       </div>
         
-      <%# 今日の平均体重 %>
-      <div class="today-weight">
-        <%# 体重の記録があるか？ %>
-        <% if @today_weight.present? %>
-          本日の体重は<%= @today_weight.round(2) %> kg 
-          <% else %>
-          本日の体重を記録することで、BMIの計算を行います。
-        <% end %>
-      </div>
-
-      <div class="target-weight">
-        <%# 目標体重との差を計算 %>
-        <% if @tt_weight.present? %>
-          <% if @tt_weight < 0 %>
-            <p>目標体重(<%= @user.target_weight %>kg)より、現在<%= @tt_weight %>kg 低い状況です。</p>
-          <% elsif @tt_weight == 0 %>
-            <p>目標体重(<%= @user.target_weight %>kg)との差はありません。</p>
-          <% else %>  
-            <p>目標体重(<%= @user.target_weight %>kg)より、現在<%= @tt_weight %>kg 高い状況です</p>
-          <% end %>
-        <% else %>
-          <p>Profile画面で目標体重を登録した際に、本日の体重との差を計測できます。</p>
-        <% end %>
-      </div>
-
-      <%# BMIなどの表示 %>
+      <%# BMIなどの体重情報の表示 %>
       <div class="weight-info">
+        <p class="info-header">体重や身長から求められる情報</p>
+        <%# 今日の平均体重 %>
+        <div class="today-weight">
+          <%# 体重の記録があるか？ %>
+          <% if @today_weight.present? %>
+            本日の体重は<%= @today_weight.round(2) %> kg 
+            <% else %>
+            本日の体重を記録することで、BMIの計算を行います。
+          <% end %>
+        </div>
+
+        <%# 目標体重との差を計算 %>
+        <div class="target-weight">
+          <% if @tt_weight.present? %>
+            <% if @tt_weight < 0 %>
+              <p>目標体重(<%= @user.target_weight %>kg)より、現在<%= @tt_weight %>kg 低い状況です。</p>
+            <% elsif @tt_weight == 0 %>
+              <p>目標体重(<%= @user.target_weight %>kg)との差はありません。</p>
+            <% else %>  
+              <p>目標体重(<%= @user.target_weight %>kg)より、現在<%= @tt_weight %>kg 高い状況です</p>
+            <% end %>
+          <% else %>
+            <p>Profile画面で目標体重を登録した際に、本日の体重との差を計測できます。</p>
+          <% end %>
+        </div>
+
         <%# 身長を登録しているかどうか %>
         <% if @user.height.present? %>
-          <%= form_with  model: @user, url: weights_path do |f| %>
-            <p>身長: <%= @user.height %>cm</p>
-          <% end %>
-          <div class="bmi-area">
-            <% if @user.height.present? && @today_weight.present?  %>
-              <p>本日のBMIは<%= @bmi.round(2) %>です。</p>  
-            <% end %>
+          <div class="user-info">
+            <div class="user-height">
+              <p>身長: <%= @user.height %>cm</p>
+            </div>
+            
+            <div class="bmi-area">
+              <% if @user.height.present? && @today_weight.present?  %>
+                <p>、本日のBMIは<%= @bmi.round(2) %>です。</p>  
+              <% end %>
+            </div>
           </div>
 
           <%# 適正体重の計算 %>
@@ -118,18 +122,18 @@
             <div class="jasso-url">
               <%= link_to "日本肥満学会", "http://www.jasso.or.jp/" %>
               では、BMIが22を適正体重（標準体重）とし、統計的に最も病気になりにくい体重とされています。 <br>
-              25以上を肥満、18.5未満を低体重と分類しています。
+              <p>また、BMI数値が25以上を肥満、18.5未満を低体重と分類されています。</p>
             </div>
           </div>
         <% else %>
-          Profile画面で身長を登録した際に、BMIを計測できます。
+          Profile画面で身長を登録した際に、BMIなどを計測できます。
         <% end %>
       </div>
 
       <%# １ヶ月前のデータを見るための記述 %>
       <div class="season-graph">
-        <%= link_to  month_weights_path do %>
-          1ヶ月前
+        <%= link_to  month_weights_path, class:"graph-month" do %>
+          1ヶ月前の記録
         <% end %>
       </div>
     </div>
