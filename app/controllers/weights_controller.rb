@@ -5,6 +5,9 @@ class WeightsController < ApplicationController
     @user = current_user
     if @user_data.present?
       @today_weight = @user_data.where(created_at: Time.zone.now.all_day).average(:weight_body)
+      if @today_weight && @user.target_weight.present?
+        @tt_weight = @today_weight - @user.target_weight 
+      end
       @week_weight = @user_data.where(created_at: 1.week.ago.all_day).average(:weight_body)
       @month_weight = @user_data.where(created_at: 1.month.ago.all_day).average(:weight_body)
       if @today_weight && @user.height.present?
