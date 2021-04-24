@@ -22,7 +22,6 @@ class WeightsController < ApplicationController
     @weight = Weight.new
     @user_data = Weight.where(user_id: current_user.id)
     @user = current_user
-    # ユーザーが体重を記録していなければ、今週の体重はない。
     if @user_data.present?
       @week_weight = @user_data.where(created_at: 7.days.ago.beginning_of_day..Time.zone.now.end_of_day).average(:weight_body)
     end
@@ -40,7 +39,7 @@ class WeightsController < ApplicationController
     end
   end
   
-
+  # 体重の作成
   def create
     @user = current_user
     @weight = Weight.new(weight_params)

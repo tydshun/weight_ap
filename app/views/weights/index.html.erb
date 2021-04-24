@@ -57,7 +57,7 @@
         <div class="weight-field">
           <%= form_with model: @weight, url: weights_path, method: "POST", remote: true do |f| %>
             <%= f.number_field :weight_body, step: "0.1" ,class: "weight-write" %>
-            <%= f.submit '体重を登録', class:'input_submit' %>
+            <%= f.submit '体重を記録', class:'input_submit' %>
           <% end %>
         </div>
 
@@ -65,7 +65,7 @@
         <div class="today-weight">
           <%# 体重の記録があるか？ %>
           <% if @today_weight.present? %>
-            本日の平均体重は<%= @today_weight.round(2) %> kg
+            本日の体重は<%= @today_weight.round(2) %> kg ※何回かに分けることにより、1日の平均体重を記録出来ます。
             <% else %>
             ← 本日の体重を記録することで、BMIの計算を行います。
           <% end %>

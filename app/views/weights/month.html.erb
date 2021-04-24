@@ -49,30 +49,24 @@
       </div>
 
       <div class="today-weight">
-        30日前の週の平均体重は<%= @month_weight %> kg
+        ・30日前の週の平均体重は<%= @month_weight %> kg でした。
       </div>
 
+      <%# BMIなどの計算 %>
       <div class="weight-info">
         <% if @user.height.present? %>
-          <%= form_with  model: @user, url: weights_path do |f| %>
-            <p><%= @user.height %>cm</p>
-          <% end %>
-          <div class="bmi-area">
-            <% if @user.height.present? && @month_weight.present?  %>
-              <p>30日前の週のBMIは<%= @bmi.round(2) %>でした。</p>  
-            <% end %>
-          </div>
-
           <div class="bmi-area2">
             <% if @month_weight.present? %>
-              身長から割り出される適正体重は<%= @standard_weight.round(2) %>kgであり、一番健康とされている体重より30日前の週は、<%= @difference_weight.round(2)%>kgでした。
+              ・身長(<%= @user.height %>cm)から割り出される適正体重は、<%= @standard_weight.round(2) %>kgであり、<br>
+              一番健康とされている体重より30日前の週の体重は、<%= @difference_weight.round(2)%>kgでBMIは <%= @bmi.round(2) %> でした。
               <% if @week_weight.present? %>
+                <%# 約1ヶ月前との差を比較の条件 %>
                 <% if @wm_weight > 0 %>
-                  <div> 又、今週の平均体重は、(<%= @week_weight.round(2) %>kg)であり、30日前の週の平均体重(<%= @month_weight %> kg)との差は <%= @wm_weight %>kg 増えてます。</div>
+                  <div> ・又、今週の平均体重は、(<%= @week_weight.round(2) %>kg)であり、30日前の週の平均体重(<%= @month_weight %> kg)との差は <%= @wm_weight %>kg 増えてます。</div>
                 <% elsif @wm_weight == 0 %>
-                  <div> 又、今週の平均体重は、(<%= @week_weight.round(2) %>kg)であり、30日前の週の平均体重(<%= @month_weight %> kg)との差は <%= @wm_weight %>kg であり、増減はしていません。</div>
+                  <div> ・又、今週の平均体重は、(<%= @week_weight.round(2) %>kg)であり、30日前の週の平均体重(<%= @month_weight %> kg)との差は <%= @wm_weight %>kg であり、増減はしていません。</div>
                 <% else %>
-                  <div> 又、今週の平均体重は、(<%= @week_weight.round(2) %>kg)であり、30日前の週の平均体重(<%= @month_weight %> kg)との差は <%= @wm_weight %>kg であり、減ってます。</div>
+                  <div> ・又、今週の平均体重は、(<%= @week_weight.round(2) %>kg)であり、30日前の週の平均体重(<%= @month_weight %> kg)との差は <%= @wm_weight %>kg であり、減ってます。</div>
                 <% end %>
               <% end %>
             <% end %>
@@ -80,13 +74,11 @@
         <% else %>
           Profile画面で身長を登録した際に、BMIを計測できます。
         <% end %>
-
-
       </div>
-
+      <%# 今週のグラフに遷移 %>
       <div class="season-graph">
         <%= link_to  weights_path do %>
-          現在
+          現在に戻る
         <% end %>
       </div>
     </div>
