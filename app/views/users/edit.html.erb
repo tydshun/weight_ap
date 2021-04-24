@@ -41,6 +41,7 @@
             <%= form_with model:@user do |f| %>
               <%= f.text_area :profile, class:"profile-area", placeholder:"自己紹介欄" %>
               <%= f.number_field :height, class:"height-area"%>cm
+              <%= f.number_field :target_weight, class:"t-weight-area"%>kg
               <%= f.submit %>
             <% end %>
           </div>
