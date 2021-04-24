@@ -58,23 +58,32 @@
         </div>    
         <div class="right-my-low">
           <div class="my-photo">
-            <div class="my-photo-title">My Posts List</div>
-            
-          <ul class = "photo-li">
-            <span class = "list-json"></span>
-            <% @tweets.each do |tweet| %>
-            <li class="photo-up">
-              <div class="photo-img">
-              <%=image_tag tweet.image, class: 'tweet-photos' %>
-              </div>
-              <%= link_to tweet_path(tweet.id) do %>
-                <span><%= tweet.title%></span>
-              <% end %>
+            <%# 自分の投稿一覧 %>
+            <div class="my-photo-title">
+              My Posts List
+            </div>
+
+            <%# 自分の投稿がある時の条件 %>
+            <% if @tweets.present? %>
+              <ul class = "photo-li">
+                <span class = "list-json"></span>
+                <% @tweets.each do |tweet| %>
+                <li class="photo-up">
+                  <div class="photo-img">
+                  <%=image_tag tweet.image, class: 'tweet-photos' %>
+                  </div>
+                  <%= link_to tweet_path(tweet.id) do %>
+                    <span><%= tweet.title%></span>
+                  <% end %>
+                <% end %>
+                </li> 
+              </ul> 
+
+              <%# ページネーション %>
+              <%= paginate @tweets %>
+            <% else %>
+              現在、投稿はありません。
             <% end %>
-            </li> 
-          </ul> 
-          
-        <%= paginate @tweets %>
           </div>
         </div>
     </section>
