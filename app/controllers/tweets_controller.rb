@@ -20,6 +20,7 @@ class TweetsController < ApplicationController
     end
   
     def show
+      @user = User.find(params[:id])
       @comment = Comment.new
       @comments = @tweet.comments.includes(:user).order("created_at DESC")
     end
