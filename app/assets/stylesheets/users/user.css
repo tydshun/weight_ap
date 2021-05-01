@@ -325,7 +325,7 @@ li {
 
 .mypage .right-mypage .profile .right-my-hight .profile-text .profile-area {
   width: 99.4%;
-  height: 265px;
+  height: 240px;
   outline: none;
   background-color: rgba(255, 255, 255, 0.041);
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -345,10 +345,9 @@ li {
 }
 
 .mypage .right-mypage .profile .right-my-low .my-photo .my-photo-title {
-  margin-left: 50px;
   padding-top: 17px;
-  font-size: larger;
-  padding-bottom: 3%;
+  font-size: 1.2em;
+  padding-bottom: 5%;
 }
 
 .mypage .right-mypage .profile .right-my-low .my-photo .pad {
@@ -358,6 +357,13 @@ li {
 .mypage .right-mypage .profile .right-my-low .my-photo .pagination {
   text-align: center;
   margin-top: 3%;
+}
+
+.mypage .right-mypage .profile .right-my-low .my-photo .not-tweet {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  font-size: 1.3em;
 }
 
 .mypage .right-mypage .graph {

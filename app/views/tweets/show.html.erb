@@ -9,6 +9,7 @@
       <%# </a> %>
       <% end %>
     </div>
+
     <%# ヘッダーライト %>
     <div class="header-right">
       <ul class = "menu-list">
@@ -37,68 +38,66 @@
       </ul>
     </div> 
   </header>
+
    <%# ツイート詳細ページ %>
   <div class="tweet-show">
   <%# 詳細ページの左側 %>
-  <div class="show-left">
-    <div class="show-title">
-      <%= @tweet.title %>
-    </div>
-    <div class="show-image">
+    <div class="show-left">
+      <div class="show-title">
+        <%= @tweet.title %>
+      </div>
+      <div class="show-image">
 
-      <%= link_to @tweet.image, "data-lightbox" => @tweet.image do %>
-        <%= image_tag(@tweet.image.variant(resize:'30%x30%')) %>
-      <% end %>
+        <%= link_to @tweet.image, "data-lightbox" => @tweet.image do %>
+          <%= image_tag(@tweet.image.variant(resize:'30%x30%')) %>
+        <% end %>
 
-    </div>
-
-    <div class="show-text">
-      <%= safe_join(@tweet.text.split("\n"),tag(:br)) %>
-    </div>
-
-    <div class="tweets-name">
-      <%= link_to root_path, class: 'tweet-name', method: :get do %>
-        <%= "@#{@tweet.user.nickname}" %>
-      <% end %>
-    </div>
-  </div>
-
-
-
-  <div class="show-right">
-    <div class ="show-comment">
-      <h2>Comment</h2>
-      <%# コメント一覧 %>
-      <div class="comment-index">
-        <div class="comment-lists">
-          <% @comments.each do |comment| %>
-            <%# コメントしたユーザー名 %>
-            <div class="comment-user">
-              <%= link_to root_path(comment.user.id),class:"user-name" do%>
-                <%= "@#{@tweet.user.nickname}" %> (<%= comment.created_at.to_s(:datetime_jp) %>)
-              <% end %>
-            </div>
-
-            <%# コメント内容 %>
-            <div class="comment-text">
-              <%= safe_join(comment.text.split("\n"),tag(:br)) %>
-            </div>
-            <br>
-          <% end %>
-        </div>
       </div>
 
-      <%= form_with(model: [@tweet, @comment], local: true, class:"with-all") do |f| %>
-        <div class="comment-field">
-          <%= f.text_area :text, placeholder: "Write a comment", rows: "6",cols:"40",class:"comment-area" %> 
+      <div class="show-text">
+        <%= safe_join(@tweet.text.split("\n"),tag(:br)) %>
+      </div>
+
+      <div class="tweets-name">
+        <%= link_to user_path(@user), class: 'tweet-name', method: :get do %>
+          <%= "@#{@tweet.user.nickname}" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="show-right">
+      <div class ="show-comment">
+        <h2>Comment</h2>
+        <%# コメント一覧 %>
+        <div class="comment-index">
+          <div class="comment-lists">
+            <% @comments.each do |comment| %>
+              <%# コメントしたユーザー名 %>
+              <div class="comment-user">
+                <%= link_to root_path(comment.user.id),class:"user-name" do%>
+                  <%= "@#{@tweet.user.nickname}" %> (<%= comment.created_at.to_s(:datetime_jp) %>)
+                <% end %>
+              </div>
+
+              <%# コメント内容 %>
+              <div class="comment-text">
+                <%= safe_join(comment.text.split("\n"),tag(:br)) %>
+              </div>
+              <br>
+            <% end %>
+          </div>
         </div>
 
-        <%= f.label "Comment" ,for:"comment_btn",class:"btn_label"%>
-        <%= f.submit 'Comment',class:"comment-btn",id:"comment_btn" %>
-      <% end %>
-    </div>
-  </div>
+        <%= form_with(model: [@tweet, @comment], local: true, class:"with-all") do |f| %>
+          <div class="comment-field">
+            <%= f.text_area :text, placeholder: "Write a comment", rows: "6",cols:"40",class:"comment-area" %> 
+          </div>
 
+          <%= f.label "Comment" ,for:"comment_btn",class:"btn_label"%>
+          <%= f.submit 'Comment',class:"comment-btn",id:"comment_btn" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
