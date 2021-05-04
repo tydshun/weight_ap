@@ -3,13 +3,17 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = current_user.blogs
+    @user = current_user
   end
 
   def new
     @blog = Blog.new
+    @user = current_user
   end
 
   def show
+    @blogs = current_user.blogs
+    @user = current_user
     @blog = Blog.find(params[:id])
     if @blog.user == current_user
       render "show"
@@ -37,6 +41,7 @@ class BlogsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @blog = Blog.find(params[:id])
     if @blog.user == current_user
       render "edit"
@@ -48,7 +53,7 @@ class BlogsController < ApplicationController
   def update
     @blog = Blog.find(params[:id])
     if @blog.update(blog_parameter)
-      redirect_to blogs_path, notice: "編集しました"
+      redirect_to blogs_path, notice: "記録を編集しました"
     else
       render 'edit'
     end
