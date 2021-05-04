@@ -1,0 +1,78 @@
+<div class="mypage">
+  <div class="left-mypage">
+    <div class="left-my-hight">
+      <div class="my-profile-img">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar %>
+          <% else %>
+          <img src="/assets/IMG_9232.JPG">
+        <% end %>
+        
+      </div>
+      <%# ニックネームを表示 %>
+      <div class="nickname-border">
+        <p><%= @user.nickname %></p>
+      </div>
+    </div>
+
+    <%# メニュー欄 %>
+    <div class="left-my-low">
+      <ul>
+        <div class="li-border">
+          <%# プロフィール編集 %>
+          <%= link_to edit_user_path(@user)  do%>
+            <li class="profile-btn">Profile</li>
+          <% end %>
+
+          <%= link_to blogs_path do%>
+            <li class="calendar-btn">Calendar</li>
+          <% end %>
+          
+          <%= link_to weights_path do %>
+            <li class="graph-btn">Graph</li>
+          <% end %>
+        </div>
+      </ul>
+    </div>
+  </div>
+
+  <div class="right-mypage">
+    <%# ーーーCalendar投稿ーーー %>
+    <div class="calendar-new-title">
+      Write a Diary
+    </div>
+    <div class="blog-new">
+      <%= form_with(model: @blog, local: true, class:"blog-form") do |form| %>
+      
+      <div class="blog-title">
+          <%= form.label :title, class:"label-title" %>
+          <div class="title-style">
+          <span class="title-span"></span>
+          <%= form.text_field :title, autocomplete:"off", class:"field-title",placeholder:"20文字以内" %>
+        </div>
+      </div>
+
+      <div class="blog-content">
+        <%= form.label :content, class:"label-content" %>
+          <div class="content-style">
+            <span class="content-dot1"></span>
+            <span class="content-dot2"></span>
+            <%= form.text_area :content, autocomplete:"off", class:"field-content" %>
+          </div>
+      </div>
+        <div class="blog-time">
+          <%= form.label :start_time, class:"label-time" %>
+          <div class="time-style">
+            <span class="time-span"></span>
+            <%= form.datetime_select :start_time, class:"field-time" %>
+          </div>
+      </div>
+      <div class="blog-button">
+        <span class="btn-span"></span>
+        <%= form.label "Post", for:"blog-submit", class:"blog-btn" %>
+        <%= form.submit id:"blog-submit"%>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
