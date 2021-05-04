@@ -1,19 +1,81 @@
-<p id="notice"><%= notice %></p>
+<div class="mypage">
+  <div class="left-mypage">
+    <div class="left-my-hight">
+      <div class="my-profile-img">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar %>
+          <% else %>
+          <img src="/assets/IMG_9232.JPG">
+        <% end %>
+        
+      </div>
+      <%# ニックネームを表示 %>
+      <div class="nickname-border">
+        <p><%= @user.nickname %></p>
+      </div>
+    </div>
 
-<p>
-  <strong>タイトル</strong>
-  <%= @blog.title %>
-</p>
+    <%# メニュー欄 %>
+    <div class="left-my-low">
+      <ul>
+        <div class="li-border">
+          <%# プロフィール編集 %>
+          <%= link_to edit_user_path(@user)  do%>
+            <li class="profile-btn">Profile</li>
+          <% end %>
 
-<p>
-  <strong>時間</strong>
-  <%= @blog.start_time.strftime("%Y-%m-%d %H:%M") %>
-</p>
+          <%= link_to blogs_path do%>
+            <li class="calendar-btn">Calendar</li>
+          <% end %>
+          
+          <%= link_to weights_path do %>
+            <li class="graph-btn">Graph</li>
+          <% end %>
+        </div>
+      </ul>
+    </div>
+  </div>
+  
+  <%# ーーーCalendarページーーー %>
+  <div class="right-mypage">
+    <div class="calendar-all">
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>内容</strong>
-  <%= @blog.content %>
-</p>
+      <h1>My Calendar</h1>
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+      <%= link_to 'Write a Diary', new_blog_path %>
+
+      <%= month_calendar events: @blogs do |date, blogs| %>
+        <%= date.day %>
+
+        <% blogs.each do |blog| %>
+          <div>
+            <%= link_to blog.title, blog %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="show-calendar">
+      <p id="notice"><%= notice %></p>
+      <p>
+        <strong>タイトル</strong>
+        <%= @blog.title %>
+      </p>
+
+      <p>
+        <strong>時間</strong>
+        <%= @blog.start_time.strftime("%Y-%m-%d %H:%M") %>
+      </p>
+
+      <p>
+        <strong>内容</strong>
+        <%= @blog.content %>
+      </p>
+
+      <%= link_to 'Edit', edit_blog_path(@blog) %> |
+      <%= link_to 'Back', blogs_path %>
+    </div>
+  </div>
+</div>
+
