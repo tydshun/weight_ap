@@ -1,3 +1,155 @@
-// Place all the styles related to the blogs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.calendar-index {
+  & .top-title {
+    display: flex;
+    padding-top: 2%;
+    & .title {
+      font-weight: normal;
+      font-size: 35px;
+    }
+    & #notice {
+      padding: 2%;
+      height: 5%;
+    }
+  }
+  & .new-path {
+    float: right;
+    width: 11%;
+    padding: 1%;
+    margin-right: 5%;
+    margin-bottom: 1%;
+    border: 1px solid white;
+    & a{
+      color: gray;
+      padding: 5%;
+    }
+  }
+  & .calendar-field {
+    padding-top: 2%;
+  }
+}
+.calendar-heading {
+  font-size: 2em;
+}
+
+
+.simple-calendar {
+  & .prev-month {
+    background: rgba(106, 179, 64, 0.212);
+  }
+}
+.today {
+  background: rgba(70, 207, 173, 0.164)!important;
+}
+
+// Calendar詳細ページのスタイル
+.show-calendar {
+  text-align: center;
+  font-size: 2em;
+  margin-right: 10%;
+  & .show-title{
+    padding-top: 2%;
+    padding-bottom: 1%;
+  }
+  & .show-title2 {
+    background-color: rgba(255, 255, 255, 0.253);
+
+  }
+  & .show-time {
+    padding-top: 2%;
+    padding-bottom: 1%;
+  }
+  & .show-time2{
+    background-color: rgba(255, 255, 255, 0.253);
+  }
+  & .show-content {
+    padding-top: 2%;
+    padding-bottom: 1%;
+  }
+  & .show-content2 {
+    background-color: rgba(255, 255, 255, 0.253);
+    overflow: scroll;
+    height: 400px;
+  }
+}
+// Calendar編集ページのスタイル
+.calendar-edit-title {
+  padding-top: 2%;
+  padding-bottom: 1%;
+  font-weight: normal;
+  font-size: 35px;
+}
+.calendar-new {
+  text-align: center;
+  font-size: 2em;
+  padding-top: 5%;
+  padding-right: 8%;
+  & .field-title {
+    width: 50%;
+    height: 40px;
+    outline: none;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.089);
+    margin-top: 1%;
+    margin-bottom: 2%;
+    text-align: center;
+  }
+  & .field-content {
+    width: 50%;
+    height: 200px;
+    outline: none;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.089);
+    margin-top: 1%;
+    margin-bottom: 2%;
+  }
+  & #blog_start_time_1i, #blog_start_time_2i, #blog_start_time_3i, #blog_start_time_4i, #blog_start_time_5i {
+    // width: 50%;
+    height: 40px;
+    outline: none;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.089);
+    margin-top: 1%;
+    margin-bottom: 2%;
+    padding-right: 3%;
+
+  }
+}
+
+// Diary投稿ページのスタイル
+.calendar-new-title {
+  padding-top: 2%;
+  padding-bottom: 1%;
+  font-weight: normal;
+  font-size: 35px;
+}
+.calendar-new {
+  & .field-title {
+    width: 50%;
+    height: 40px;
+    outline: none;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.089);
+    margin-top: 1%;
+    margin-bottom: 2%;
+  }
+  & .field-content {
+    width: 50%;
+    height: 200px;
+    outline: none;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.089);
+    margin-top: 1%;
+    margin-bottom: 2%;
+  }
+  & #blog_start_time_1i, #blog_start_time_2i, #blog_start_time_3i, #blog_start_time_4i, #blog_start_time_5i {
+    // width: 50%;
+    height: 40px;
+    outline: none;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.089);
+    margin-top: 1%;
+    margin-bottom: 2%;
+    padding-right: 3%;
+
+  }
+}

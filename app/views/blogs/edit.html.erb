@@ -38,28 +38,25 @@
 
   <div class="right-mypage">
     <%# ーーーCalendar投稿ーーー %>
-    <div class="calendar-new-title">
+    <div class="calendar-edit-title">
       Edit Diary
     </div>
-    <div class="blog-new">
+    <div class="calendar-new">
       <%= form_with(model: @blog, local: true, class:"blog-form") do |form| %>
-  
-      <div class="blog-title">
+        <div class="blog-title">
           <%= form.label :title, class:"label-title" %>
           <div class="title-style">
-          <span class="title-span"></span>
-          <%= form.text_field :title, autocomplete:"off", class:"field-title" %>
-        </div>
-      </div>
-
-      <div class="blog-content">
-        <%= form.label :content, class:"label-content" %>
-          <div class="content-style">
-            <span class="content-dot1"></span>
-            <span class="content-dot2"></span>
-            <%= form.text_area :content, autocomplete:"off", class:"field-content" %>
+            <span class="title-span"></span>
+            <%= form.text_field :title, autocomplete:"off", class:"field-title" %>
           </div>
-      </div>
+        </div>
+
+        <div class="blog-content">
+          <%= form.label :content, class:"label-content" %>
+            <div class="content-style">
+              <%= form.text_area :content, autocomplete:"off", class:"field-content" %>
+            </div>
+        </div>
         <div class="blog-time">
           <%= form.label :start_time, class:"label-time" %>
           <div class="time-style">
@@ -68,7 +65,7 @@
           </div>
       </div>
       <div class="blog-button">
-        <%= form.label "Post", for:"blog-submit", class:"blog-btn" %>
+        <%# <%= form.label "Post", for:"blog-submit", class:"blog-btn" %> 
         <%= form.submit id:"blog-submit" %>
       </div>
       <% end %>

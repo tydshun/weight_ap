@@ -1,4 +1,9 @@
-/* Weightページのスタイル */
+.graph-title {
+  padding-top: 2%;
+  font-weight: normal;
+  font-size: 35px;
+}
+
 .graph-all {
   height: 100%;
 }

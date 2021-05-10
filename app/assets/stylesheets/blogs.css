@@ -1,0 +1,164 @@
+.calendar-index .top-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 2%;
+}
+
+.calendar-index .top-title .title {
+  font-weight: normal;
+  font-size: 35px;
+}
+
+.calendar-index .top-title #notice {
+  padding: 2%;
+  height: 5%;
+}
+
+.calendar-index .new-path {
+  float: right;
+  width: 11%;
+  padding: 1%;
+  margin-right: 5%;
+  margin-bottom: 1%;
+  border: 1px solid white;
+}
+
+.calendar-index .new-path a {
+  color: gray;
+  padding: 5%;
+}
+
+.calendar-index .calendar-field {
+  padding-top: 2%;
+}
+
+.calendar-heading {
+  font-size: 2em;
+}
+
+.simple-calendar .prev-month {
+  background: rgba(106, 179, 64, 0.212);
+}
+
+.today {
+  background: rgba(70, 207, 173, 0.164) !important;
+}
+
+.show-calendar {
+  text-align: center;
+  font-size: 2em;
+  margin-right: 10%;
+}
+
+.show-calendar .show-title {
+  padding-top: 2%;
+  padding-bottom: 1%;
+}
+
+.show-calendar .show-title2 {
+  background-color: rgba(255, 255, 255, 0.253);
+}
+
+.show-calendar .show-time {
+  padding-top: 2%;
+  padding-bottom: 1%;
+}
+
+.show-calendar .show-time2 {
+  background-color: rgba(255, 255, 255, 0.253);
+}
+
+.show-calendar .show-content {
+  padding-top: 2%;
+  padding-bottom: 1%;
+}
+
+.show-calendar .show-content2 {
+  background-color: rgba(255, 255, 255, 0.253);
+  overflow: scroll;
+  height: 400px;
+}
+
+.calendar-edit-title {
+  padding-top: 2%;
+  padding-bottom: 1%;
+  font-weight: normal;
+  font-size: 35px;
+}
+
+.calendar-new {
+  text-align: center;
+  font-size: 2em;
+  padding-top: 5%;
+  padding-right: 8%;
+}
+
+.calendar-new .field-title {
+  width: 50%;
+  height: 40px;
+  outline: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.089);
+  margin-top: 1%;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.calendar-new .field-content {
+  width: 50%;
+  height: 200px;
+  outline: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.089);
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+.calendar-new #blog_start_time_1i, .calendar-new #blog_start_time_2i, .calendar-new #blog_start_time_3i, .calendar-new #blog_start_time_4i, .calendar-new #blog_start_time_5i {
+  height: 40px;
+  outline: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.089);
+  margin-top: 1%;
+  margin-bottom: 2%;
+  padding-right: 3%;
+}
+
+.calendar-new-title {
+  padding-top: 2%;
+  padding-bottom: 1%;
+  font-weight: normal;
+  font-size: 35px;
+}
+
+.calendar-new .field-title {
+  width: 50%;
+  height: 40px;
+  outline: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.089);
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+.calendar-new .field-content {
+  width: 50%;
+  height: 200px;
+  outline: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.089);
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+.calendar-new #blog_start_time_1i, .calendar-new #blog_start_time_2i, .calendar-new #blog_start_time_3i, .calendar-new #blog_start_time_4i, .calendar-new #blog_start_time_5i {
+  height: 40px;
+  outline: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.089);
+  margin-top: 1%;
+  margin-bottom: 2%;
+  padding-right: 3%;
+}
+/*# sourceMappingURL=blogs.css.map */

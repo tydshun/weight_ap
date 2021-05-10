@@ -38,40 +38,24 @@
   
   <%# ーーーCalendarページーーー %>
   <div class="right-mypage">
-    <div class="calendar-all">
-      <p id="notice"><%= notice %></p>
-
-      <h1>My Calendar</h1>
-
-      <%= link_to 'Write a Diary', new_blog_path %>
-
-      <%= month_calendar events: @blogs do |date, blogs| %>
-        <%= date.day %>
-
-        <% blogs.each do |blog| %>
-          <div>
-            <%= link_to blog.title, blog %>
-          </div>
-        <% end %>
-      <% end %>
+    <div class="calendar-index">
+      <div class="top-title">
+        <div class="graph-title">Contents of the diary</div>
+        <div id="notice"><%= notice %></div>
+      </div>
     </div>
 
     <div class="show-calendar">
-      <p id="notice"><%= notice %></p>
-      <p>
-        <strong>タイトル</strong>
-        <%= @blog.title %>
-      </p>
+      <div class="show-title">Title</div>
+      <div class="show-title2"><%= @blog.title %></div>
+      
+      <div class="show-time">Time</div>
+      <div class="show-time2"><%= @blog.start_time.strftime("%Y-%m-%d %H:%M") %></div>
 
-      <p>
-        <strong>時間</strong>
-        <%= @blog.start_time.strftime("%Y-%m-%d %H:%M") %>
-      </p>
-
-      <p>
-        <strong>内容</strong>
-        <%= @blog.content %>
-      </p>
+      
+      <div class="show-content">Content</div>
+      <div class="show-content2"><%= safe_join(@blog.content.split("\n"),tag(:br)) %></div>
+      
 
       <%= link_to 'Edit', edit_blog_path(@blog) %> |
       <%= link_to 'Back', blogs_path %>
