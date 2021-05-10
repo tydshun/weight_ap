@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'blogs/index'
   devise_for :users
   resources :users, :only => [:show, :edit, :update]
   devise_scope :user do
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   end
  
   root to: 'tweets#index'
+  resources :blogs
 
   resources :tweets do
     collection do

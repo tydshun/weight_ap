@@ -1,0 +1,65 @@
+<div class="mypage">
+  <div class="left-mypage">
+    <div class="left-my-hight">
+      <div class="my-profile-img">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar %>
+          <% else %>
+          <img src="/assets/IMG_9232.JPG">
+        <% end %>
+        
+      </div>
+      <%# ニックネームを表示 %>
+      <div class="nickname-border">
+        <p><%= @user.nickname %></p>
+      </div>
+    </div>
+
+    <%# メニュー欄 %>
+    <div class="left-my-low">
+      <ul>
+        <div class="li-border">
+          <%# プロフィール編集 %>
+          <%= link_to edit_user_path(@user)  do%>
+            <li class="profile-btn">Profile</li>
+          <% end %>
+
+          <%= link_to blogs_path do%>
+            <li class="calendar-btn">Calendar</li>
+          <% end %>
+          
+          <%= link_to weights_path do %>
+            <li class="graph-btn">Graph</li>
+          <% end %>
+        </div>
+      </ul>
+    </div>
+  </div>
+  
+  <%# ーーーCalendarページーーー %>
+  <div class="right-mypage">
+    <div class="calendar-index">
+      <div class="top-title">
+        <div class="graph-title">Contents of the diary</div>
+        <div id="notice"><%= notice %></div>
+      </div>
+    </div>
+
+    <div class="show-calendar">
+      <div class="show-title">Title</div>
+      <div class="show-title2"><%= @blog.title %></div>
+      
+      <div class="show-time">Time</div>
+      <div class="show-time2"><%= @blog.start_time.strftime("%Y-%m-%d %H:%M") %></div>
+
+      
+      <div class="show-content">Content</div>
+      <div class="show-content2"><%= safe_join(@blog.content.split("\n"),tag(:br)) %></div>
+      
+
+      <%= link_to 'Edit', edit_blog_path(@blog) %> |
+      <%= link_to 'Back', blogs_path %>
+    </div>
+  </div>
+</div>
+

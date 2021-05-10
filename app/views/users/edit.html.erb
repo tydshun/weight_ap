@@ -18,7 +18,11 @@
         <%= link_to user_path do%>
           <li class="profile-btn">Profile</li>
         <% end %>
+        
+        <%# ーーーカレンダページに遷移ーーー %>
+        <%= link_to blogs_path do%>
           <li class="calendar-btn">Calendar</li>
+        <% end %>
 
           <%# ーーーグラフ画面に遷移ーーー %>
           <%= link_to weights_path do %>
